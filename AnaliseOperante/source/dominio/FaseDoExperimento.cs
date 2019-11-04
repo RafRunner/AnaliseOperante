@@ -8,54 +8,70 @@ using System.Threading.Tasks;
 namespace AnaliseOperante.source.dominio {
 	public abstract class FaseDoExperimento : EntidadeDeBanco {
 
-		public string CorQuadrado1 { get; set; }
-		private Color colorQuadrado1;
-		public Color ColorQuadrado1 {
-			get => colorQuadrado1;
-			set {
-				colorQuadrado1 = value;
-				CorQuadrado1 = colorQuadrado1.ToString();
-			}
-		}
+		public int PontosTotais { get; protected set; }
 
-		public string CorQuadrado2 { get; set; }
-		private Color colorQuadrado2;
-		public Color ColorQuadrado2 {
-			get => colorQuadrado2;
-			set {
-				colorQuadrado2 = value;
-				CorQuadrado2 = colorQuadrado2.ToString();
-			}
-		}
+		public int PontosGanhos { get; protected set; }
 
-		public string CorQuadrado3 { get; set; }
-		private Color colorQuadrado3;
-		public Color ColorQuadrado3 {
-			get => colorQuadrado3;
-			set {
-				colorQuadrado3 = value;
-				CorQuadrado3 = colorQuadrado3.ToString();
-			}
-		}
+		public int PontosPerdidos { get; protected set; }
 
-		public string CorBorda { get; set; }
-		private Color colorCorBorda;
-		public Color ColorCorBorda {
-			get => colorCorBorda;
-			set {
-				colorCorBorda = value;
-				CorQuadrado1 = colorCorBorda.ToString();
-			}
-		}
+		//Métodos responsáveis por alterar os ponto ganhos, perdidos e totais, além de cuidar de outros efeitos colaterias (sons e etc);
+		public abstract void ToqueQuadrado1();
+		public abstract void ToqueQuadrado2();
+		public abstract void ToqueQuadrado3();
+		public abstract void ToqueBorda();
+		public abstract void ToqueFundo();
+		public abstract void ToquePlacarGanhos();
+		public abstract void ToquePlacarPerdidos();
+		public abstract void ToquePlacarTotais();
 
-		public string CorFundo { get; set; }
-		private Color colorFundo;
-		public Color ColorFundo {
-			get => colorFundo;
+		private int corQuadrado1;
+		public int CorQuadrado1 {
+			get => corQuadrado1;
 			set {
-				colorFundo = value;
-				CorFundo = colorFundo.ToString();
+				corQuadrado1 = value;
+				ColorQuadrado1 = Color.FromArgb(corQuadrado1);
 			}
 		}
+		public Color ColorQuadrado1 { get; private set; }
+
+		private int corQuadrado2;
+		public int CorQuadrado2 {
+			get => corQuadrado2;
+			set {
+				corQuadrado2 = value;
+				ColorQuadrado2 = Color.FromArgb(corQuadrado2);
+			}
+		}
+		public Color ColorQuadrado2 { get; private set; }
+
+		private int corQuadrado3;
+		public int CorQuadrado3 {
+			get => corQuadrado3;
+			set {
+				corQuadrado3 = value;
+				ColorQuadrado3 = Color.FromArgb(corQuadrado3);
+			}
+		}
+		public Color ColorQuadrado3 { get; private set; }
+
+		private int corBorda;
+		public int CorBorda {
+			get => corBorda;
+			set {
+				corBorda = value;
+				ColorBorda = Color.FromArgb(corBorda);
+			}
+		}
+		public Color ColorBorda { get; private set; }
+
+		private int corFundo;
+		public int CorFundo {
+			get => corFundo;
+			set {
+				corFundo = value;
+				ColorFundo = Color.FromArgb(corFundo);
+			}
+		}
+		public Color ColorFundo { get; private set; }
 	}
 }

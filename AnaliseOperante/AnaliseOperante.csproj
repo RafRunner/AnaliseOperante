@@ -69,6 +69,7 @@
     <Compile Include="source\dominio\FaseDoExperimento.cs" />
     <Compile Include="source\dominio\LinhaDeBase.cs" />
     <Compile Include="source\services\AbstractService.cs" />
+    <Compile Include="source\services\LinhaDeBaseService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
