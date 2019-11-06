@@ -63,12 +63,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="source\dominio\Condicao.cs" />
     <Compile Include="source\dominio\EntidadeDeBanco.cs" />
     <Compile Include="source\dominio\Evento.cs" />
     <Compile Include="source\dominio\Experimento.cs" />
     <Compile Include="source\dominio\FaseDoExperimento.cs" />
+    <Compile Include="source\dominio\FeedBack.cs" />
     <Compile Include="source\dominio\LinhaDeBase.cs" />
     <Compile Include="source\services\AbstractService.cs" />
+    <Compile Include="source\services\Ambiente.cs" />
+    <Compile Include="source\services\AudioService.cs" />
+    <Compile Include="source\services\FeedBackService.cs" />
     <Compile Include="source\services\LinhaDeBaseService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -100,6 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="source\utils\" />
     <Folder Include="source\View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,8 @@ namespace AnaliseOperante.source.dominio {
 
 		public string Texto { get; set; }
 
+		public string Origem { get; set; }
+
 		public long IdExperimento { get; set; }
 		private Experimento experimento;
 		public Experimento Experimento {

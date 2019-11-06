@@ -35,14 +35,10 @@ namespace AnaliseOperante.source.dominio {
 			get => dateTimeInicio;
 			set {
 				dateTimeInicio = value;
-				dataHoraInicio = dateTimeInicio.ToString(FORMATO_DATE_TIME);
+				DataHoraInicio = dateTimeInicio.ToString(FORMATO_DATE_TIME);
 			}
 		}
 
-		private string dataHoraInicio;
-		public string DataHoraInicio {
-			get => dataHoraInicio;
-			set { }
-		}
+		public string DataHoraInicio { get; private set; }
 	}
 }

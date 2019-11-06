@@ -43,7 +43,7 @@ namespace AnaliseOperante.source.services {
 
 			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
 				if (objetoExistente == null) {
-					long id = cnn.Query<long>(sqlInsert, objeto).Single();
+					long id = cnn.Query<long>(sqlInsert + "; SELECT CAST(last_insert_rowid() as int)", objeto).Single();
 					objeto.Id = id;
 				}
 				else {

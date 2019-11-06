@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnaliseOperante.source.dominio {
 	public abstract class FaseDoExperimento : EntidadeDeBanco {
+		public int TempoApresentacao { get; set; }
 
 		public int PontosTotais { get; protected set; }
 
@@ -18,11 +19,6 @@ namespace AnaliseOperante.source.dominio {
 		public abstract void ToqueQuadrado1();
 		public abstract void ToqueQuadrado2();
 		public abstract void ToqueQuadrado3();
-		public abstract void ToqueBorda();
-		public abstract void ToqueFundo();
-		public abstract void ToquePlacarGanhos();
-		public abstract void ToquePlacarPerdidos();
-		public abstract void ToquePlacarTotais();
 
 		private int corQuadrado1;
 		public int CorQuadrado1 {
