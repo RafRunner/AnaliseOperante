@@ -20,8 +20,8 @@ namespace AnaliseOperante.source.services {
 
 		public static void Salvar(LinhaDeBase linhaDeBase) {
 			AbstractService.Salvar<LinhaDeBase>(linhaDeBase, TABELA_LinhaDeBase,
-				$"INSERT INTO {TABELA_LinhaDeBase} (CorQuadrado1, CorQuadrado2, CorQuadrado3, CorFundo, CorBorda, TempoApresentacao) VALUES (@CorQuadrado1, @CorQuadrado2, @CorQuadrado3, @CorFundo, @CorBorda, @TempoApresentacao)",
-				$"UPDATE {TABELA_LinhaDeBase} SET CorQuadrado1 = @CorQuadrado1, CorQuadrado2 = @CorQuadrado2, CorQuadrado3 = @CorQuadrado3, CorFundo = @CorFundo, CorBorda = @CorBorda, TempoApresentacao = @TempoApresentacao");
+				$"INSERT INTO {TABELA_LinhaDeBase} (Nome, CorQuadrado1, CorQuadrado2, CorQuadrado3, CorFundo, CorBorda, TempoApresentacao, PontosTotais) VALUES (@Nome, @CorQuadrado1, @CorQuadrado2, @CorQuadrado3, @CorFundo, @CorBorda, @TempoApresentacao, @PontosTotais)",
+				$"UPDATE {TABELA_LinhaDeBase} SET Nome = @Nome, CorQuadrado1 = @CorQuadrado1, CorQuadrado2 = @CorQuadrado2, CorQuadrado3 = @CorQuadrado3, CorFundo = @CorFundo, CorBorda = @CorBorda, TempoApresentacao = @TempoApresentacao, PontosTotais = @PontosTotais");
 		}
 
 		public static void Deletar(LinhaDeBase linhaDeBase) {

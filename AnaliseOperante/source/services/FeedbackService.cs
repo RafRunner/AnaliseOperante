@@ -18,8 +18,8 @@ namespace AnaliseOperante.source.services {
 			return AbstractService.GetAll<FeedBack>(TABELA_Feedback);
 		}
 
-		public static void Salvar(FeedBack linhaDeBase) {
-			AbstractService.Salvar<FeedBack>(linhaDeBase, TABELA_Feedback,
+		public static void Salvar(FeedBack feedback) {
+			AbstractService.Salvar<FeedBack>(feedback, TABELA_Feedback,
 				$"INSERT INTO {TABELA_Feedback} (NomeAudio, CorBlink, Pontos) VALUES (@NomeAudio, @CorBlink, @Pontos)",
 				$"UPDATE {TABELA_Feedback} SET NomeAudio = @NomeAudio, CorBlink = @CorBlink, Pontos = @Pontos");
 		}

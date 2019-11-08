@@ -7,15 +7,36 @@ using System.Threading.Tasks;
 
 namespace AnaliseOperante.source.dominio {
 	public abstract class FaseDoExperimento : EntidadeDeBanco {
-		public int TempoApresentacao { get; set; }
 
-		public int PontosTotais { get; protected set; }
+		private string nome;
+		public string Nome {
+			get => nome;
+			set {
+				nome = NullCheck(value, "Nome", "Experimento");
+			}
+		}
+
+		private int tempoApresentacao;
+		public int TempoApresentacao {
+			get => tempoApresentacao;
+			set {
+				tempoApresentacao = NullCheck(value, "Tempo de Apresentação", "Linha de Base Ou Condição");
+			}
+		}
+
+		private int pontosTotais;
+		public int PontosTotais {
+			get => pontosTotais;
+			set {
+				pontosTotais = NullCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
+			}
+		}
 
 		public int PontosGanhos { get; protected set; }
 
 		public int PontosPerdidos { get; protected set; }
 
-		//Métodos responsáveis por alterar os ponto ganhos, perdidos e totais, além de cuidar de outros efeitos colaterias (sons e etc);
+		//Métodos responsáveis por alterar os ponto ganhos, perdidos e totais, além de cuidar de outros efeitos colaterias inerentes ao feedback não dependentes da tela (sons e etc);
 		public abstract void ToqueQuadrado1();
 		public abstract void ToqueQuadrado2();
 		public abstract void ToqueQuadrado3();
@@ -24,7 +45,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado1 {
 			get => corQuadrado1;
 			set {
-				corQuadrado1 = value;
+				corQuadrado1 = NullCheck(value, "Cor do Quadrado 1", "Linha de Base Ou Condição");
 				ColorQuadrado1 = Color.FromArgb(corQuadrado1);
 			}
 		}
@@ -34,7 +55,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado2 {
 			get => corQuadrado2;
 			set {
-				corQuadrado2 = value;
+				corQuadrado2 = NullCheck(value, "Cor do Quadrado 2", "Linha de Base Ou Condição");
 				ColorQuadrado2 = Color.FromArgb(corQuadrado2);
 			}
 		}
@@ -44,7 +65,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado3 {
 			get => corQuadrado3;
 			set {
-				corQuadrado3 = value;
+				corQuadrado3 = NullCheck(value, "Cor do Quadrado 3", "Linha de Base Ou Condição");
 				ColorQuadrado3 = Color.FromArgb(corQuadrado3);
 			}
 		}
@@ -54,7 +75,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorBorda {
 			get => corBorda;
 			set {
-				corBorda = value;
+				corBorda = NullCheck(value, "Cor da Borda", "Linha de Base Ou Condição");
 				ColorBorda = Color.FromArgb(corBorda);
 			}
 		}
@@ -64,7 +85,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorFundo {
 			get => corFundo;
 			set {
-				corFundo = value;
+				corFundo = NullCheck(value, "Cor do Fundo", "Linha de Base Ou Condição");
 				ColorFundo = Color.FromArgb(corFundo);
 			}
 		}

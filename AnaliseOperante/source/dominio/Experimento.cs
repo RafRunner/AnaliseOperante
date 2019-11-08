@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnaliseOperante.source.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,14 @@ namespace AnaliseOperante.source.dominio {
 	public class Experimento : EntidadeDeBanco {
 
 		private static readonly string FORMATO_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
+
+		private string nome;
+		public string Nome {
+			get => nome;
+			set {
+				nome = NullCheck(value, "Nome", "Experimento");
+			}
+		}
 
 		private string nomeParticipante;
 		public string NomeParticipante {
@@ -27,7 +36,7 @@ namespace AnaliseOperante.source.dominio {
 
 		public string Grupo { get; set; }
 		public string CabineUtilizada { get; set; }
-		//Tempo em Segundos
+		//Tempo em Segundos (não é predeterminado, é o corrido)
 		public long TempoDuracao { get; set; }
 
 		private DateTime dateTimeInicio;
@@ -40,5 +49,18 @@ namespace AnaliseOperante.source.dominio {
 		}
 
 		public string DataHoraInicio { get; private set; }
+
+		public long IdLinhaDeBase { get; set; }
+		private LinhaDeBase linhaDeBase;
+		public LinhaDeBase LinhaDeBase {
+			get {
+				if (linhaDeBase == null) {
+					linhaDeBase = LinhaDeBaseService.GetById(IdLinhaDeBase);
+				}
+				return linhaDeBase;
+			}
+		}
+
+		public List<Condicao> Condicoes { get; set; }
 	}
 }
