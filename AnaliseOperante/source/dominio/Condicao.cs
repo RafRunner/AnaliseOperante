@@ -7,6 +7,18 @@ using System.Threading.Tasks;
 
 namespace AnaliseOperante.source.dominio {
 	public class Condicao : FaseDoExperimento {
+		// Em ms
+		private long tempoGanhoPassivo;
+		public long TempoGanhoPassivo {
+			get => tempoGanhoPassivo;
+			set {
+				if (value < 0) {
+					throw new Exception("O valor do intervalo de ganho de pontos passivamente não pode ser menor que 0!");
+				}
+				tempoGanhoPassivo = value;
+			}
+		}
+		public int PontosGanhoPassivo { get; set; }
 
 		public long IdFeedBackQuadrado1 { get; set; }
 		private FeedBack feedBackQuadrado1;
@@ -42,15 +54,21 @@ namespace AnaliseOperante.source.dominio {
 		}
 
 		public override void ToqueQuadrado1() {
-			throw new NotImplementedException();
+			int pontosFeedback = FeedBackQuadrado1.Pontos;
+			AtulizarPontos(pontosFeedback);
+			FeedBackQuadrado1.PlayAudio();
 		}
 
 		public override void ToqueQuadrado2() {
-			throw new NotImplementedException();
+			int pontosFeedback = FeedBackQuadrado2.Pontos;
+			AtulizarPontos(pontosFeedback);
+			FeedBackQuadrado2.PlayAudio();
 		}
 
 		public override void ToqueQuadrado3() {
-			throw new NotImplementedException();
+			int pontosFeedback = FeedBackQuadrado3.Pontos;
+			AtulizarPontos(pontosFeedback);
+			FeedBackQuadrado3.PlayAudio();
 		}
 	}
 }

@@ -69,5 +69,16 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 		public Color ColorFundo { get; private set; }
+
+		protected void AtulizarPontos(int quantidadePontos) {
+			PontosTotais -= Math.Abs(quantidadePontos);
+
+			if (quantidadePontos > 0) {
+				PontosGanhos += quantidadePontos;
+			}
+			else {
+				PontosPerdidos += quantidadePontos * -1;
+			}
+		}
 	}
 }
