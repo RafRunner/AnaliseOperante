@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnaliseOperante.source.view;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace AnaliseOperante {
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new MenuInicial());
 		}
 	}
 }

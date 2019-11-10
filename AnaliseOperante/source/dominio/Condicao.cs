@@ -20,7 +20,7 @@ namespace AnaliseOperante.source.dominio {
 		}
 		public int PontosGanhoPassivo { get; set; }
 
-		public long IdFeedBackQuadrado1 { get; set; }
+		public long IdFeedBackQuadrado1 { private get; set; }
 		private FeedBack feedBackQuadrado1;
 		public FeedBack FeedBackQuadrado1 {
 			get {
@@ -29,9 +29,13 @@ namespace AnaliseOperante.source.dominio {
 				}
 				return feedBackQuadrado1;
 			}
+			set {
+				feedBackQuadrado1 = value;
+				IdFeedBackQuadrado1 = GetIdNullSafe(value);
+			}
 		}
 
-		public long IdFeedBackQuadrado2 { get; set; }
+		public long IdFeedBackQuadrado2 { private get; set; }
 		private FeedBack feedBackQuadrado2;
 		public FeedBack FeedBackQuadrado2 {
 			get {
@@ -40,9 +44,13 @@ namespace AnaliseOperante.source.dominio {
 				}
 				return feedBackQuadrado2;
 			}
+			set {
+				feedBackQuadrado2 = value;
+				IdFeedBackQuadrado2 = GetIdNullSafe(value);
+			}
 		}
 
-		public long IdFeedBackQuadrado3 { get; set; }
+		public long IdFeedBackQuadrado3 { private get; set; }
 		private FeedBack feedBackQuadrado3;
 		public FeedBack FeedBackQuadrado3 {
 			get {
@@ -50,6 +58,10 @@ namespace AnaliseOperante.source.dominio {
 					feedBackQuadrado3 = FeedBackService.GetById(IdFeedBackQuadrado3);
 				}
 				return feedBackQuadrado3;
+			}
+			set {
+				feedBackQuadrado3 = value;
+				IdFeedBackQuadrado3 = GetIdNullSafe(value);
 			}
 		}
 

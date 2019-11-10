@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnaliseOperante.source.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,17 @@ namespace AnaliseOperante.source.dominio {
 
 		public string Origem { get; set; }
 
-		public long IdExperimento { get; set; }
-		private Experimento experimento;
-		public Experimento Experimento {
-			get => experimento;
+		public long IdExperimento { private get; set; }
+		private ExperimentoRealizado experimento;
+		public ExperimentoRealizado ExperimentoRealizado {
+			get {
+				if (experimento == null) {
+					experimento = ExperimentoRealizadoService.GetById(IdExperimento);
+				}
+				return ExperimentoRealizado;
+			}
 			set {
-				IdExperimento = GetIdNullSafe(value, "Evento", "Experimento");
+				IdExperimento = GetIdNullSafe(value, "Evento", "Experimento Realizado");
 				experimento = value;
 			}
 		}

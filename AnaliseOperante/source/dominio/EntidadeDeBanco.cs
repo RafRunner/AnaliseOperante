@@ -19,6 +19,10 @@ namespace AnaliseOperante.source.dominio {
 			if (value == null) {
 				throw new Exception($"Todo {classeFilha} deve estar associado a um {classePai}!");
 			}
+			return value.Id;
+		}
+
+		protected long GetIdNullSafe(EntidadeDeBanco value) {
 			if (value == null) {
 				return 0;
 			}

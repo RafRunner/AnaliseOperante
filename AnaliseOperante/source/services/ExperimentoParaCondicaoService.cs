@@ -13,14 +13,17 @@ namespace AnaliseOperante.source.services {
 
 		public static List<Condicao> GetAllCondicoesByExperimento(Experimento experimento) {
 			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
-				List<ExperimentoParaCondicao> experimentoParaCondicoes = cnn.Query<ExperimentoParaCondicao>("SELECT * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id", experimento).ToList();
+				List<ExperimentoParaCondicao> experimentoParaCondicoes = cnn.Query<ExperimentoParaCondicao>("SELECT * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id ORDER BY Ordem", experimento).ToList();
 
-				List<Condicao> condicoes = new List<Condicao>();
-				foreach (ExperimentoParaCondicao experimentoParaCondicao in experimentoParaCondicoes) {
-					condicoes.Add(CondicaoService.GetById(experimentoParaCondicao.IdCondicao));
-				}
+				return experimentoParaCondicoes.Select(it => {
+					return CondicaoService.GetById(it.IdCondicao);
+				}).ToList();
+			}
+		}
 
-				return condicoes;
+		public static void DeleteAllByExperimento(Experimento experimento) {
+			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
+				cnn.Execute("DELETE * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id", experimento);
 			}
 		}
 	}

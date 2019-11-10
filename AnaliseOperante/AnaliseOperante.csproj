@@ -62,6 +62,7 @@
     <Compile Include="source\dominio\Evento.cs" />
     <Compile Include="source\dominio\Experimento.cs" />
     <Compile Include="source\dominio\ExperimentoParaCondicao.cs" />
+    <Compile Include="source\dominio\ExperimentoRealizado.cs" />
     <Compile Include="source\dominio\FaseDoExperimento.cs" />
     <Compile Include="source\dominio\FeedBack.cs" />
     <Compile Include="source\dominio\LinhaDeBase.cs" />
@@ -70,9 +71,22 @@
     <Compile Include="source\services\AudioService.cs" />
     <Compile Include="source\services\CondicaoService.cs" />
     <Compile Include="source\services\ExperimentoParaCondicaoService.cs" />
+    <Compile Include="source\services\ExperimentoRealizadoService.cs" />
     <Compile Include="source\services\ExperimentoService.cs" />
     <Compile Include="source\services\FeedBackService.cs" />
     <Compile Include="source\services\LinhaDeBaseService.cs" />
+    <Compile Include="source\view\LinhaDeBaseCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\LinhaDeBaseCrud.Designer.cs">
+      <DependentUpon>LinhaDeBaseCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\view\MenuInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\MenuInicial.Designer.cs">
+      <DependentUpon>MenuInicial.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +99,12 @@
     <Content Include="localDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="source\view\LinhaDeBaseCrud.resx">
+      <DependentUpon>LinhaDeBaseCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\view\MenuInicial.resx">
+      <DependentUpon>MenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,10 +119,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="source\utils\" />
-    <Folder Include="source\View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -8,5 +8,6 @@ namespace AnaliseOperante.source.dominio {
 	public class ExperimentoParaCondicao {
 		public long IdExperimento { get; set; }
 		public long IdCondicao { get; set; }
+		public int Ordem { get; set; }
 	}
 }
