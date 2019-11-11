@@ -29,7 +29,7 @@ namespace AnaliseOperante.source.dominio {
 		public string NomeParticipante {
 			get => nomeParticipante;
 			set {
-				nomeParticipante = NullCheck(value, "Nome do Participante", "Experimento");
+				nomeParticipante = NullEmptyBlankCheck(value, "Nome do Participante", "Experimento");
 			}
 		}
 
@@ -37,7 +37,7 @@ namespace AnaliseOperante.source.dominio {
 		public int IdadeParticipante {
 			get => idadeParticipante;
 			set {
-				idadeParticipante = NullCheck(value, "Idade do Participante", "Experimento");
+				idadeParticipante = GreaterThanZeroCheck(value, "Idade do Participante", "Experimento");
 			}
 		}
 

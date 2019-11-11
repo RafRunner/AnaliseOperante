@@ -57,6 +57,7 @@
 			this.textNomeParticipante = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.btnEditarExperimento = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -81,23 +82,25 @@
 			// 
 			// btnEditarCondicao
 			// 
-			this.btnEditarCondicao.Location = new System.Drawing.Point(247, 348);
+			this.btnEditarCondicao.Location = new System.Drawing.Point(130, 348);
 			this.btnEditarCondicao.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEditarCondicao.Name = "btnEditarCondicao";
 			this.btnEditarCondicao.Size = new System.Drawing.Size(61, 27);
 			this.btnEditarCondicao.TabIndex = 4;
 			this.btnEditarCondicao.Text = "Editar";
 			this.btnEditarCondicao.UseVisualStyleBackColor = true;
+			this.btnEditarCondicao.Click += new System.EventHandler(this.btnEditarCondicao_Click);
 			// 
 			// btnCriarCondicao
 			// 
-			this.btnCriarCondicao.Location = new System.Drawing.Point(125, 348);
+			this.btnCriarCondicao.Location = new System.Drawing.Point(248, 348);
 			this.btnCriarCondicao.Margin = new System.Windows.Forms.Padding(2);
 			this.btnCriarCondicao.Name = "btnCriarCondicao";
 			this.btnCriarCondicao.Size = new System.Drawing.Size(59, 27);
 			this.btnCriarCondicao.TabIndex = 3;
 			this.btnCriarCondicao.Text = "Criar";
 			this.btnCriarCondicao.UseVisualStyleBackColor = true;
+			this.btnCriarCondicao.Click += new System.EventHandler(this.btnCriarCondicao_Click);
 			// 
 			// btnDeletarCondicao
 			// 
@@ -108,6 +111,7 @@
 			this.btnDeletarCondicao.TabIndex = 2;
 			this.btnDeletarCondicao.Text = "Deletar";
 			this.btnDeletarCondicao.UseVisualStyleBackColor = true;
+			this.btnDeletarCondicao.Click += new System.EventHandler(this.btnDeletarCondicao_Click);
 			// 
 			// listViewCondicao
 			// 
@@ -141,6 +145,7 @@
 			// panel3
 			// 
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel3.Controls.Add(this.btnEditarExperimento);
 			this.panel3.Controls.Add(this.btnSelecionarExperimento);
 			this.panel3.Controls.Add(this.btnCriarExperimento);
 			this.panel3.Controls.Add(this.btnDeletarExperimento);
@@ -162,16 +167,18 @@
 			this.btnSelecionarExperimento.TabIndex = 4;
 			this.btnSelecionarExperimento.Text = "Selecionar";
 			this.btnSelecionarExperimento.UseVisualStyleBackColor = true;
+			this.btnSelecionarExperimento.Click += new System.EventHandler(this.btnSelecionarExperimento_Click);
 			// 
 			// btnCriarExperimento
 			// 
-			this.btnCriarExperimento.Location = new System.Drawing.Point(125, 348);
+			this.btnCriarExperimento.Location = new System.Drawing.Point(164, 348);
 			this.btnCriarExperimento.Margin = new System.Windows.Forms.Padding(2);
 			this.btnCriarExperimento.Name = "btnCriarExperimento";
 			this.btnCriarExperimento.Size = new System.Drawing.Size(59, 27);
 			this.btnCriarExperimento.TabIndex = 3;
 			this.btnCriarExperimento.Text = "Criar";
 			this.btnCriarExperimento.UseVisualStyleBackColor = true;
+			this.btnCriarExperimento.Click += new System.EventHandler(this.btnCriarExperimento_Click);
 			// 
 			// btnDeletarExperimento
 			// 
@@ -182,6 +189,7 @@
 			this.btnDeletarExperimento.TabIndex = 2;
 			this.btnDeletarExperimento.Text = "Deletar";
 			this.btnDeletarExperimento.UseVisualStyleBackColor = true;
+			this.btnDeletarExperimento.Click += new System.EventHandler(this.btnDeletarExperimento_Click);
 			// 
 			// listViewExperimento
 			// 
@@ -229,17 +237,18 @@
 			// 
 			// btnEditarLinhaDeBase
 			// 
-			this.btnEditarLinhaDeBase.Location = new System.Drawing.Point(248, 348);
+			this.btnEditarLinhaDeBase.Location = new System.Drawing.Point(129, 348);
 			this.btnEditarLinhaDeBase.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEditarLinhaDeBase.Name = "btnEditarLinhaDeBase";
 			this.btnEditarLinhaDeBase.Size = new System.Drawing.Size(60, 27);
 			this.btnEditarLinhaDeBase.TabIndex = 4;
 			this.btnEditarLinhaDeBase.Text = "Editar";
 			this.btnEditarLinhaDeBase.UseVisualStyleBackColor = true;
+			this.btnEditarLinhaDeBase.Click += new System.EventHandler(this.btnEditarLinhaDeBase_Click);
 			// 
 			// btnCriarLinhaDeBase
 			// 
-			this.btnCriarLinhaDeBase.Location = new System.Drawing.Point(125, 348);
+			this.btnCriarLinhaDeBase.Location = new System.Drawing.Point(250, 348);
 			this.btnCriarLinhaDeBase.Margin = new System.Windows.Forms.Padding(2);
 			this.btnCriarLinhaDeBase.Name = "btnCriarLinhaDeBase";
 			this.btnCriarLinhaDeBase.Size = new System.Drawing.Size(59, 27);
@@ -419,6 +428,17 @@
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Dados da Sessão";
 			// 
+			// btnEditarExperimento
+			// 
+			this.btnEditarExperimento.Location = new System.Drawing.Point(90, 348);
+			this.btnEditarExperimento.Margin = new System.Windows.Forms.Padding(2);
+			this.btnEditarExperimento.Name = "btnEditarExperimento";
+			this.btnEditarExperimento.Size = new System.Drawing.Size(59, 27);
+			this.btnEditarExperimento.TabIndex = 5;
+			this.btnEditarExperimento.Text = "Editar";
+			this.btnEditarExperimento.UseVisualStyleBackColor = true;
+			this.btnEditarExperimento.Click += new System.EventHandler(this.btnEditarExperimento_Click);
+			// 
 			// MenuInicial
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -432,6 +452,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "MenuInicial";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Menu Principal";
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
@@ -482,5 +503,6 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox textExperimentoSelecionado;
+		private System.Windows.Forms.Button btnEditarExperimento;
 	}
 }

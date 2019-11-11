@@ -75,6 +75,24 @@
     <Compile Include="source\services\ExperimentoService.cs" />
     <Compile Include="source\services\FeedBackService.cs" />
     <Compile Include="source\services\LinhaDeBaseService.cs" />
+    <Compile Include="source\view\CondicaoCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\CondicaoCrud.Designer.cs">
+      <DependentUpon>CondicaoCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\view\ExperimentoCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\ExperimentoCrud.Designer.cs">
+      <DependentUpon>ExperimentoCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\view\FeedbackCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\FeedbackCrud.Designer.cs">
+      <DependentUpon>FeedbackCrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="source\view\LinhaDeBaseCrud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +117,15 @@
     <Content Include="localDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="source\view\CondicaoCrud.resx">
+      <DependentUpon>CondicaoCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\view\ExperimentoCrud.resx">
+      <DependentUpon>ExperimentoCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\view\FeedbackCrud.resx">
+      <DependentUpon>FeedbackCrud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="source\view\LinhaDeBaseCrud.resx">
       <DependentUpon>LinhaDeBaseCrud.cs</DependentUpon>
     </EmbeddedResource>

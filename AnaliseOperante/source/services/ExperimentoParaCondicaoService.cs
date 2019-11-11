@@ -21,6 +21,24 @@ namespace AnaliseOperante.source.services {
 			}
 		}
 
+		public static void CreateByExperimento(Experimento experimento) {
+			DeleteAllByExperimento(experimento);
+			List<Condicao> condicoes = experimento.Condicoes;
+
+			for(int i = 0; i < condicoes.Count; i++) {
+				var condicao = condicoes[i];
+				var experimentoParaCondicao = new ExperimentoParaCondicao {
+					IdCondicao = condicao.Id,
+					IdExperimento = experimento.Id,
+					Ordem = i
+				};
+
+				using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
+					cnn.Execute("INSERT INTO ExperimentoParaCondicao (IdExperimento, IdCondicao, Ordem) VALUES (@IdExperimento, @IdCondicao, @Ordem)", experimentoParaCondicao);
+				}
+			}
+		}
+
 		public static void DeleteAllByExperimento(Experimento experimento) {
 			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
 				cnn.Execute("DELETE * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id", experimento);

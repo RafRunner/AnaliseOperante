@@ -12,8 +12,29 @@ using System.Windows.Forms;
 
 namespace AnaliseOperante.source.view {
 	public partial class LinhaDeBaseCrud : Form {
-		public LinhaDeBaseCrud() {
+
+		private readonly LinhaDeBase linhaDeBase;
+
+		public LinhaDeBaseCrud(long idLinhaDeBase = 0) {
 			InitializeComponent();
+
+			if (idLinhaDeBase == 0) {
+				linhaDeBase = new LinhaDeBase();
+				Text = "Criando nova Linha de Base";
+				return;
+			}
+
+			linhaDeBase = LinhaDeBaseService.GetById(idLinhaDeBase);
+
+			Text = "Editando Linha de Base: " + linhaDeBase.Nome;
+			textNome.Text = linhaDeBase.Nome;
+			numericTempo.Value = linhaDeBase.TempoApresentacao;
+			numericPontos.Value = linhaDeBase.PontosTotais;
+			panelCorBorda.BackColor = linhaDeBase.ColorBorda;
+			panelCorFundo.BackColor = linhaDeBase.ColorFundo;
+			panelCorQuadrado1.BackColor = linhaDeBase.ColorQuadrado1;
+			panelCorQuadrado2.BackColor = linhaDeBase.ColorQuadrado2;
+			panelCorQuadrado3.BackColor = linhaDeBase.ColorQuadrado3;
 		}
 
 		private void SelecionarCor(Panel painelCor) {
@@ -45,6 +66,7 @@ namespace AnaliseOperante.source.view {
 		private void btnSalvar_Click(object sender, EventArgs e) {
 			string nome = textNome.Text;
 			int tempo = Convert.ToInt32(numericTempo.Value);
+			int pontosTotais = Convert.ToInt32(numericPontos.Value);
 
 			int corFundo = panelCorFundo.BackColor.ToArgb();
 			int corBorda = panelCorBorda.BackColor.ToArgb();
@@ -52,18 +74,17 @@ namespace AnaliseOperante.source.view {
 			int corQuadrado2 = panelCorQuadrado2.BackColor.ToArgb();
 			int corQuadrado3 = panelCorQuadrado3.BackColor.ToArgb();
 
-			var linhaDeBase = new LinhaDeBase {
-				Nome = nome,
-				TempoApresentacao = tempo,
-				CorFundo = corFundo,
-				CorBorda = corBorda,
-				CorQuadrado1 = corQuadrado1,
-				CorQuadrado2 = corQuadrado2,
-				CorQuadrado3 = corQuadrado3,
-			};
+			linhaDeBase.Nome = nome;
+			linhaDeBase.TempoApresentacao = tempo;
+			linhaDeBase.PontosTotais = pontosTotais;
+			linhaDeBase.CorFundo = corFundo;
+			linhaDeBase.CorBorda = corBorda;
+			linhaDeBase.CorQuadrado1 = corQuadrado1;
+			linhaDeBase.CorQuadrado2 = corQuadrado2;
+			linhaDeBase.CorQuadrado3 = corQuadrado3;
 
 			LinhaDeBaseService.Salvar(linhaDeBase);
-			MessageBox.Show("Linha de Base cadastrada com sucesso!", "Sucesso");
+			MessageBox.Show("Linha de Base salva com sucesso!", "Sucesso");
 			Close();
 		}
 	}

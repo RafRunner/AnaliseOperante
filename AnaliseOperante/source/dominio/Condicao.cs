@@ -20,7 +20,7 @@ namespace AnaliseOperante.source.dominio {
 		}
 		public int PontosGanhoPassivo { get; set; }
 
-		public long IdFeedBackQuadrado1 { private get; set; }
+		public long IdFeedBackQuadrado1 { get; set; }
 		private FeedBack feedBackQuadrado1;
 		public FeedBack FeedBackQuadrado1 {
 			get {
@@ -35,7 +35,7 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		public long IdFeedBackQuadrado2 { private get; set; }
+		public long IdFeedBackQuadrado2 { get; set; }
 		private FeedBack feedBackQuadrado2;
 		public FeedBack FeedBackQuadrado2 {
 			get {
@@ -50,7 +50,7 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		public long IdFeedBackQuadrado3 { private get; set; }
+		public long IdFeedBackQuadrado3 { get; set; }
 		private FeedBack feedBackQuadrado3;
 		public FeedBack FeedBackQuadrado3 {
 			get {

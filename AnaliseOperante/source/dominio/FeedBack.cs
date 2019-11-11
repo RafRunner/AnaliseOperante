@@ -24,12 +24,14 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		private int corBlink;
-		public int CorBlink {
+		private Nullable<int> corBlink;
+		public Nullable<int> CorBlink {
 			get => corBlink;
 			set {
 				corBlink = value;
-				ColorBlink = Color.FromArgb(corBlink);
+				if (corBlink.HasValue) {
+					ColorBlink = Color.FromArgb(corBlink.GetValueOrDefault());
+				}
 			}
 		}
 		public Color ColorBlink { get; private set; }
@@ -37,6 +39,12 @@ namespace AnaliseOperante.source.dominio {
 		public void PlayAudio() {
 			if (soundPlayer != null) {
 				soundPlayer.Play();
+			}
+		}
+
+		public string Nome {
+			get {
+				return $"{Pontos} pontos{(string.IsNullOrEmpty(NomeAudio) ? "" : $" - {nomeAudio}")}{(!CorBlink.HasValue ? "" : $" - {ColorBlink.Name}")}";
 			}
 		}
 	}

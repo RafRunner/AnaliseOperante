@@ -46,8 +46,11 @@
 			this.textNome = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
+			this.numericPontos = new System.Windows.Forms.NumericUpDown();
+			this.label9 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -63,6 +66,8 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.numericPontos);
+			this.panel1.Controls.Add(this.label9);
 			this.panel1.Controls.Add(this.btnSalvar);
 			this.panel1.Controls.Add(this.btnCorQuadrado3);
 			this.panel1.Controls.Add(this.panelCorQuadrado3);
@@ -87,12 +92,12 @@
 			this.panel1.Location = new System.Drawing.Point(14, 14);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(496, 521);
+			this.panel1.Size = new System.Drawing.Size(496, 510);
 			this.panel1.TabIndex = 1;
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(174, 453);
+			this.btnSalvar.Location = new System.Drawing.Point(180, 446);
 			this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(143, 52);
@@ -103,7 +108,7 @@
 			// 
 			// btnCorQuadrado3
 			// 
-			this.btnCorQuadrado3.Location = new System.Drawing.Point(47, 410);
+			this.btnCorQuadrado3.Location = new System.Drawing.Point(48, 408);
 			this.btnCorQuadrado3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorQuadrado3.Name = "btnCorQuadrado3";
 			this.btnCorQuadrado3.Size = new System.Drawing.Size(120, 27);
@@ -115,7 +120,7 @@
 			// panelCorQuadrado3
 			// 
 			this.panelCorQuadrado3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorQuadrado3.Location = new System.Drawing.Point(11, 410);
+			this.panelCorQuadrado3.Location = new System.Drawing.Point(12, 408);
 			this.panelCorQuadrado3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorQuadrado3.Name = "panelCorQuadrado3";
 			this.panelCorQuadrado3.Size = new System.Drawing.Size(28, 27);
@@ -125,7 +130,7 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label8.Location = new System.Drawing.Point(8, 386);
+			this.label8.Location = new System.Drawing.Point(9, 384);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(109, 19);
 			this.label8.TabIndex = 17;
@@ -133,7 +138,7 @@
 			// 
 			// btnCorQuadrado2
 			// 
-			this.btnCorQuadrado2.Location = new System.Drawing.Point(47, 350);
+			this.btnCorQuadrado2.Location = new System.Drawing.Point(48, 348);
 			this.btnCorQuadrado2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorQuadrado2.Name = "btnCorQuadrado2";
 			this.btnCorQuadrado2.Size = new System.Drawing.Size(120, 27);
@@ -145,7 +150,7 @@
 			// panelCorQuadrado2
 			// 
 			this.panelCorQuadrado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorQuadrado2.Location = new System.Drawing.Point(11, 350);
+			this.panelCorQuadrado2.Location = new System.Drawing.Point(12, 348);
 			this.panelCorQuadrado2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorQuadrado2.Name = "panelCorQuadrado2";
 			this.panelCorQuadrado2.Size = new System.Drawing.Size(28, 27);
@@ -155,7 +160,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label7.Location = new System.Drawing.Point(8, 327);
+			this.label7.Location = new System.Drawing.Point(9, 325);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(109, 19);
 			this.label7.TabIndex = 14;
@@ -163,7 +168,7 @@
 			// 
 			// btnCorQuadrado1
 			// 
-			this.btnCorQuadrado1.Location = new System.Drawing.Point(47, 289);
+			this.btnCorQuadrado1.Location = new System.Drawing.Point(48, 287);
 			this.btnCorQuadrado1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorQuadrado1.Name = "btnCorQuadrado1";
 			this.btnCorQuadrado1.Size = new System.Drawing.Size(120, 27);
@@ -175,7 +180,7 @@
 			// panelCorQuadrado1
 			// 
 			this.panelCorQuadrado1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorQuadrado1.Location = new System.Drawing.Point(11, 289);
+			this.panelCorQuadrado1.Location = new System.Drawing.Point(12, 287);
 			this.panelCorQuadrado1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorQuadrado1.Name = "panelCorQuadrado1";
 			this.panelCorQuadrado1.Size = new System.Drawing.Size(28, 27);
@@ -185,7 +190,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label6.Location = new System.Drawing.Point(8, 265);
+			this.label6.Location = new System.Drawing.Point(9, 263);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(109, 19);
 			this.label6.TabIndex = 11;
@@ -193,7 +198,7 @@
 			// 
 			// btnCorBorda
 			// 
-			this.btnCorBorda.Location = new System.Drawing.Point(47, 234);
+			this.btnCorBorda.Location = new System.Drawing.Point(48, 232);
 			this.btnCorBorda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorBorda.Name = "btnCorBorda";
 			this.btnCorBorda.Size = new System.Drawing.Size(120, 27);
@@ -205,7 +210,7 @@
 			// panelCorBorda
 			// 
 			this.panelCorBorda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorBorda.Location = new System.Drawing.Point(11, 234);
+			this.panelCorBorda.Location = new System.Drawing.Point(12, 232);
 			this.panelCorBorda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorBorda.Name = "panelCorBorda";
 			this.panelCorBorda.Size = new System.Drawing.Size(28, 27);
@@ -215,7 +220,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label5.Location = new System.Drawing.Point(8, 210);
+			this.label5.Location = new System.Drawing.Point(9, 208);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(71, 19);
 			this.label5.TabIndex = 8;
@@ -223,7 +228,7 @@
 			// 
 			// btnCorFundo
 			// 
-			this.btnCorFundo.Location = new System.Drawing.Point(47, 177);
+			this.btnCorFundo.Location = new System.Drawing.Point(48, 175);
 			this.btnCorFundo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorFundo.Name = "btnCorFundo";
 			this.btnCorFundo.Size = new System.Drawing.Size(120, 27);
@@ -235,7 +240,7 @@
 			// panelCorFundo
 			// 
 			this.panelCorFundo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorFundo.Location = new System.Drawing.Point(11, 177);
+			this.panelCorFundo.Location = new System.Drawing.Point(12, 175);
 			this.panelCorFundo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorFundo.Name = "panelCorFundo";
 			this.panelCorFundo.Size = new System.Drawing.Size(28, 27);
@@ -245,7 +250,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label4.Location = new System.Drawing.Point(8, 153);
+			this.label4.Location = new System.Drawing.Point(9, 151);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(74, 19);
 			this.label4.TabIndex = 5;
@@ -255,6 +260,11 @@
 			// 
 			this.numericTempo.Location = new System.Drawing.Point(11, 121);
 			this.numericTempo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.numericTempo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
 			this.numericTempo.Name = "numericTempo";
 			this.numericTempo.Size = new System.Drawing.Size(155, 25);
 			this.numericTempo.TabIndex = 4;
@@ -285,11 +295,33 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Nome";
 			// 
+			// numericPontos
+			// 
+			this.numericPontos.Location = new System.Drawing.Point(221, 121);
+			this.numericPontos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.numericPontos.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.numericPontos.Name = "numericPontos";
+			this.numericPontos.Size = new System.Drawing.Size(155, 25);
+			this.numericPontos.TabIndex = 22;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(218, 97);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(92, 19);
+			this.label9.TabIndex = 21;
+			this.label9.Text = "Pontos Totais";
+			// 
 			// LinhaDeBaseCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(523, 545);
+			this.ClientSize = new System.Drawing.Size(523, 531);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -300,6 +332,7 @@
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -329,5 +362,7 @@
 		private System.Windows.Forms.TextBox textNome;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ColorDialog colorDialog;
+		private System.Windows.Forms.NumericUpDown numericPontos;
+		private System.Windows.Forms.Label label9;
 	}
 }

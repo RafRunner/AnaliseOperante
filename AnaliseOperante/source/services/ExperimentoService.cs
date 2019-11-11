@@ -22,10 +22,10 @@ namespace AnaliseOperante.source.services {
 		}
 
 		public static void Salvar(Experimento experimento) {
+			ExperimentoParaCondicaoService.CreateByExperimento(experimento);
 			AbstractService.Salvar<Experimento>(experimento, TABELA_Experimento,
 				$"INSERT INTO {TABELA_Experimento} (Nome, IdLinhaDeBase) VALUES (@Nome, @IdLinhaDeBase)",
-				$"");
-
+				$"UPDATE {TABELA_Experimento} SET Nome = @Nome, IdLinhaDeBase = @IdLinhaDeBase)");
 		}
 
 		public static void Deletar(Experimento experimento) {

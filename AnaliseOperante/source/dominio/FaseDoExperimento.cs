@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 namespace AnaliseOperante.source.dominio {
 	public abstract class FaseDoExperimento : EntidadeDeBanco {
 
+		public readonly static int COR_NEUTRA = -986896;
+
 		private string nome;
 		public string Nome {
 			get => nome;
 			set {
-				nome = NullCheck(value, "Nome", "Experimento");
+				nome = NullEmptyBlankCheck(value, "Nome", "Experimento");
 			}
 		}
 
@@ -20,7 +22,7 @@ namespace AnaliseOperante.source.dominio {
 		public int TempoApresentacao {
 			get => tempoApresentacao;
 			set {
-				tempoApresentacao = NullCheck(value, "Tempo de Apresentação", "Linha de Base Ou Condição");
+				tempoApresentacao = GreaterThanZeroCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
 			}
 		}
 
@@ -28,7 +30,7 @@ namespace AnaliseOperante.source.dominio {
 		public int PontosTotais {
 			get => pontosTotais;
 			set {
-				pontosTotais = NullCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
+				pontosTotais = GreaterThanZeroCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
 			}
 		}
 
