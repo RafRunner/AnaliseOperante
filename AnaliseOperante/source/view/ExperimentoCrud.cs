@@ -31,6 +31,7 @@ namespace AnaliseOperante.source.view {
 			Text = "Editando Experimento: " + experimento.Nome;
 			textNome.Text = experimento.Nome;
 			textLinhaDeBase.Text = experimento.LinhaDeBase?.Nome;
+			textInstrucao.Text = experimento.Instrucao;
 			experimento.Condicoes.ForEach(it => AdicionaCondicaoEscolhida(it));
 		}
 
@@ -105,6 +106,7 @@ namespace AnaliseOperante.source.view {
 
 		private void btnSalvarExperimento_Click(object sender, EventArgs e) {
 			experimento.Nome = textNome.Text;
+			experimento.Instrucao = textInstrucao.Text;
 
 			ExperimentoService.Salvar(experimento);
 			MessageBox.Show("Experimento salvo com sucesso!", "Sucesso");

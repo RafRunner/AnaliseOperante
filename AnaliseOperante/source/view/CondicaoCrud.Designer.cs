@@ -24,6 +24,10 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.numericIntervalo = new System.Windows.Forms.NumericUpDown();
+			this.label12 = new System.Windows.Forms.Label();
+			this.numericPontosPassivos = new System.Windows.Forms.NumericUpDown();
+			this.label11 = new System.Windows.Forms.Label();
 			this.numericPontos = new System.Windows.Forms.NumericUpDown();
 			this.label10 = new System.Windows.Forms.Label();
 			this.textFeedback3 = new System.Windows.Forms.TextBox();
@@ -61,24 +65,20 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label9 = new System.Windows.Forms.Label();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.label11 = new System.Windows.Forms.Label();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-			this.label12 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericIntervalo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericPontosPassivos)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).BeginInit();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.numericUpDown2);
+			this.panel1.Controls.Add(this.numericIntervalo);
 			this.panel1.Controls.Add(this.label12);
-			this.panel1.Controls.Add(this.numericUpDown1);
+			this.panel1.Controls.Add(this.numericPontosPassivos);
 			this.panel1.Controls.Add(this.label11);
 			this.panel1.Controls.Add(this.numericPontos);
 			this.panel1.Controls.Add(this.label10);
@@ -114,6 +114,55 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(496, 530);
 			this.panel1.TabIndex = 2;
+			// 
+			// numericIntervalo
+			// 
+			this.numericIntervalo.Location = new System.Drawing.Point(226, 255);
+			this.numericIntervalo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.numericIntervalo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+			this.numericIntervalo.Name = "numericIntervalo";
+			this.numericIntervalo.Size = new System.Drawing.Size(155, 23);
+			this.numericIntervalo.TabIndex = 36;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(223, 229);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(156, 17);
+			this.label12.TabIndex = 35;
+			this.label12.Text = "Intervalo Pontos Passivos";
+			// 
+			// numericPontosPassivos
+			// 
+			this.numericPontosPassivos.Location = new System.Drawing.Point(226, 194);
+			this.numericPontosPassivos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.numericPontosPassivos.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.numericPontosPassivos.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+			this.numericPontosPassivos.Name = "numericPontosPassivos";
+			this.numericPontosPassivos.Size = new System.Drawing.Size(155, 23);
+			this.numericPontosPassivos.TabIndex = 34;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(223, 168);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(101, 17);
+			this.label11.TabIndex = 33;
+			this.label11.Text = "Pontos Passivos";
 			// 
 			// numericPontos
 			// 
@@ -477,50 +526,6 @@
 			this.label9.TabIndex = 21;
 			this.label9.Text = "Feedbacks";
 			// 
-			// numericUpDown1
-			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(226, 194);
-			this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(155, 23);
-			this.numericUpDown1.TabIndex = 34;
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(223, 168);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(101, 17);
-			this.label11.TabIndex = 33;
-			this.label11.Text = "Pontos Passivos";
-			// 
-			// numericUpDown2
-			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(226, 255);
-			this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.numericUpDown2.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(155, 23);
-			this.numericUpDown2.TabIndex = 36;
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(223, 229);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(156, 17);
-			this.label12.TabIndex = 35;
-			this.label12.Text = "Intervalo Pontos Passivos";
-			// 
 			// CondicaoCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -536,12 +541,12 @@
 			this.Text = "CondicaoCrud";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericIntervalo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericPontosPassivos)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -586,9 +591,9 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.ColorDialog colorDialog;
 		private System.Windows.Forms.Button btnEditar;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
+		private System.Windows.Forms.NumericUpDown numericIntervalo;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.NumericUpDown numericPontosPassivos;
 		private System.Windows.Forms.Label label11;
 	}
 }

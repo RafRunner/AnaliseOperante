@@ -41,7 +41,7 @@ namespace AnaliseOperante.source.services {
 
 		public static void DeleteAllByExperimento(Experimento experimento) {
 			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
-				cnn.Execute("DELETE * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id", experimento);
+				cnn.Execute("DELETE FROM ExperimentoParaCondicao WHERE IdExperimento = @Id", experimento);
 			}
 		}
 	}

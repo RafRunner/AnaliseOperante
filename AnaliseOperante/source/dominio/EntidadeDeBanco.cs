@@ -57,6 +57,13 @@ namespace AnaliseOperante.source.dominio {
 			return valor;
 		}
 
+		protected long NonNegativeCheck(long valor, string nomePropriedade, string nomeObjeto) {
+			if (valor < 0) {
+				throw new Exception($"{nomePropriedade} de {nomeObjeto} não pode ser negativa!");
+			}
+			return valor;
+		}
+
 		protected int NotZeroCheck(int valor, string nomePropriedade, string nomeObjeto) {
 			if (valor == 0) {
 				throw new Exception($"{nomePropriedade} de {nomeObjeto} não pode ser zero!");

@@ -31,6 +31,7 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.btnEditarExperimento = new System.Windows.Forms.Button();
 			this.btnSelecionarExperimento = new System.Windows.Forms.Button();
 			this.btnCriarExperimento = new System.Windows.Forms.Button();
 			this.btnDeletarExperimento = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
 			this.textNomeParticipante = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.btnEditarExperimento = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -157,6 +157,17 @@
 			this.panel3.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
 			this.panel3.Size = new System.Drawing.Size(315, 384);
 			this.panel3.TabIndex = 6;
+			// 
+			// btnEditarExperimento
+			// 
+			this.btnEditarExperimento.Location = new System.Drawing.Point(90, 348);
+			this.btnEditarExperimento.Margin = new System.Windows.Forms.Padding(2);
+			this.btnEditarExperimento.Name = "btnEditarExperimento";
+			this.btnEditarExperimento.Size = new System.Drawing.Size(59, 27);
+			this.btnEditarExperimento.TabIndex = 5;
+			this.btnEditarExperimento.Text = "Editar";
+			this.btnEditarExperimento.UseVisualStyleBackColor = true;
+			this.btnEditarExperimento.Click += new System.EventHandler(this.btnEditarExperimento_Click);
 			// 
 			// btnSelecionarExperimento
 			// 
@@ -326,6 +337,7 @@
 			this.btnIniciarExperimento.TabIndex = 5;
 			this.btnIniciarExperimento.Text = "Inicar";
 			this.btnIniciarExperimento.UseVisualStyleBackColor = true;
+			this.btnIniciarExperimento.Click += new System.EventHandler(this.btnIniciarExperimento_Click);
 			// 
 			// numericIdadeParticipante
 			// 
@@ -427,17 +439,6 @@
 			this.label4.Size = new System.Drawing.Size(138, 21);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Dados da Sessão";
-			// 
-			// btnEditarExperimento
-			// 
-			this.btnEditarExperimento.Location = new System.Drawing.Point(90, 348);
-			this.btnEditarExperimento.Margin = new System.Windows.Forms.Padding(2);
-			this.btnEditarExperimento.Name = "btnEditarExperimento";
-			this.btnEditarExperimento.Size = new System.Drawing.Size(59, 27);
-			this.btnEditarExperimento.TabIndex = 5;
-			this.btnEditarExperimento.Text = "Editar";
-			this.btnEditarExperimento.UseVisualStyleBackColor = true;
-			this.btnEditarExperimento.Click += new System.EventHandler(this.btnEditarExperimento_Click);
 			// 
 			// MenuInicial
 			// 

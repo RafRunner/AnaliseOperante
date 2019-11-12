@@ -12,10 +12,7 @@ namespace AnaliseOperante.source.dominio {
 		public long TempoGanhoPassivo {
 			get => tempoGanhoPassivo;
 			set {
-				if (value < 0) {
-					throw new Exception("O valor do intervalo de ganho de pontos passivamente não pode ser menor que 0!");
-				}
-				tempoGanhoPassivo = value;
+				tempoGanhoPassivo = NonNegativeCheck(value, "Tempo Ganho Passivo", "Condição");
 			}
 		}
 		public int PontosGanhoPassivo { get; set; }

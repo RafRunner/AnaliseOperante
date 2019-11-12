@@ -34,17 +34,19 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.btnRemoverLinhaDeBase = new System.Windows.Forms.Button();
+			this.btnRemoverCondicao = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.textLinhaDeBase = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.textNome = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.btnSalvarExperimento = new System.Windows.Forms.Button();
 			this.listViewCondicoesSelecionadas = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.textNome = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.textLinhaDeBase = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
-			this.btnRemoverCondicao = new System.Windows.Forms.Button();
-			this.btnRemoverLinhaDeBase = new System.Windows.Forms.Button();
+			this.label7 = new System.Windows.Forms.Label();
+			this.textInstrucao = new System.Windows.Forms.TextBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -159,6 +161,8 @@
 			// panel3
 			// 
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel3.Controls.Add(this.textInstrucao);
+			this.panel3.Controls.Add(this.label7);
 			this.panel3.Controls.Add(this.btnRemoverLinhaDeBase);
 			this.panel3.Controls.Add(this.btnRemoverCondicao);
 			this.panel3.Controls.Add(this.label6);
@@ -173,12 +177,76 @@
 			this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-			this.panel3.Size = new System.Drawing.Size(315, 384);
+			this.panel3.Size = new System.Drawing.Size(573, 384);
 			this.panel3.TabIndex = 9;
+			// 
+			// btnRemoverLinhaDeBase
+			// 
+			this.btnRemoverLinhaDeBase.Location = new System.Drawing.Point(8, 121);
+			this.btnRemoverLinhaDeBase.Margin = new System.Windows.Forms.Padding(2);
+			this.btnRemoverLinhaDeBase.Name = "btnRemoverLinhaDeBase";
+			this.btnRemoverLinhaDeBase.Size = new System.Drawing.Size(142, 27);
+			this.btnRemoverLinhaDeBase.TabIndex = 10;
+			this.btnRemoverLinhaDeBase.Text = "Remover LdB";
+			this.btnRemoverLinhaDeBase.UseVisualStyleBackColor = true;
+			this.btnRemoverLinhaDeBase.Click += new System.EventHandler(this.btnRemoverLinhaDeBase_Click);
+			// 
+			// btnRemoverCondicao
+			// 
+			this.btnRemoverCondicao.Location = new System.Drawing.Point(5, 346);
+			this.btnRemoverCondicao.Margin = new System.Windows.Forms.Padding(2);
+			this.btnRemoverCondicao.Name = "btnRemoverCondicao";
+			this.btnRemoverCondicao.Size = new System.Drawing.Size(142, 27);
+			this.btnRemoverCondicao.TabIndex = 9;
+			this.btnRemoverCondicao.Text = "Remover Condição";
+			this.btnRemoverCondicao.UseVisualStyleBackColor = true;
+			this.btnRemoverCondicao.Click += new System.EventHandler(this.btnRemoverCondicao_Click);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(5, 162);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(69, 17);
+			this.label6.TabIndex = 8;
+			this.label6.Text = "Condições";
+			// 
+			// textLinhaDeBase
+			// 
+			this.textLinhaDeBase.Enabled = false;
+			this.textLinhaDeBase.Location = new System.Drawing.Point(8, 93);
+			this.textLinhaDeBase.Name = "textLinhaDeBase";
+			this.textLinhaDeBase.Size = new System.Drawing.Size(304, 23);
+			this.textLinhaDeBase.TabIndex = 7;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(5, 73);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(89, 17);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "Linha de Base";
+			// 
+			// textNome
+			// 
+			this.textNome.Location = new System.Drawing.Point(6, 47);
+			this.textNome.Name = "textNome";
+			this.textNome.Size = new System.Drawing.Size(304, 23);
+			this.textNome.TabIndex = 5;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(2, 26);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(44, 17);
+			this.label4.TabIndex = 4;
+			this.label4.Text = "Nome";
 			// 
 			// btnSalvarExperimento
 			// 
-			this.btnSalvarExperimento.Location = new System.Drawing.Point(248, 346);
+			this.btnSalvarExperimento.Location = new System.Drawing.Point(508, 346);
 			this.btnSalvarExperimento.Margin = new System.Windows.Forms.Padding(2);
 			this.btnSalvarExperimento.Name = "btnSalvarExperimento";
 			this.btnSalvarExperimento.Size = new System.Drawing.Size(59, 27);
@@ -217,75 +285,28 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Experimento";
 			// 
-			// label4
+			// label7
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(2, 26);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(44, 17);
-			this.label4.TabIndex = 4;
-			this.label4.Text = "Nome";
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(315, 26);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(62, 17);
+			this.label7.TabIndex = 11;
+			this.label7.Text = "Instrução";
 			// 
-			// textNome
+			// textInstrucao
 			// 
-			this.textNome.Location = new System.Drawing.Point(6, 47);
-			this.textNome.Name = "textNome";
-			this.textNome.Size = new System.Drawing.Size(304, 23);
-			this.textNome.TabIndex = 5;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(5, 73);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(89, 17);
-			this.label5.TabIndex = 6;
-			this.label5.Text = "Linha de Base";
-			// 
-			// textLinhaDeBase
-			// 
-			this.textLinhaDeBase.Enabled = false;
-			this.textLinhaDeBase.Location = new System.Drawing.Point(8, 93);
-			this.textLinhaDeBase.Name = "textLinhaDeBase";
-			this.textLinhaDeBase.Size = new System.Drawing.Size(304, 23);
-			this.textLinhaDeBase.TabIndex = 7;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(5, 162);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(69, 17);
-			this.label6.TabIndex = 8;
-			this.label6.Text = "Condições";
-			// 
-			// btnRemoverCondicao
-			// 
-			this.btnRemoverCondicao.Location = new System.Drawing.Point(5, 346);
-			this.btnRemoverCondicao.Margin = new System.Windows.Forms.Padding(2);
-			this.btnRemoverCondicao.Name = "btnRemoverCondicao";
-			this.btnRemoverCondicao.Size = new System.Drawing.Size(142, 27);
-			this.btnRemoverCondicao.TabIndex = 9;
-			this.btnRemoverCondicao.Text = "Remover Condição";
-			this.btnRemoverCondicao.UseVisualStyleBackColor = true;
-			this.btnRemoverCondicao.Click += new System.EventHandler(this.btnRemoverCondicao_Click);
-			// 
-			// btnRemoverLinhaDeBase
-			// 
-			this.btnRemoverLinhaDeBase.Location = new System.Drawing.Point(8, 121);
-			this.btnRemoverLinhaDeBase.Margin = new System.Windows.Forms.Padding(2);
-			this.btnRemoverLinhaDeBase.Name = "btnRemoverLinhaDeBase";
-			this.btnRemoverLinhaDeBase.Size = new System.Drawing.Size(142, 27);
-			this.btnRemoverLinhaDeBase.TabIndex = 10;
-			this.btnRemoverLinhaDeBase.Text = "Remover LdB";
-			this.btnRemoverLinhaDeBase.UseVisualStyleBackColor = true;
-			this.btnRemoverLinhaDeBase.Click += new System.EventHandler(this.btnRemoverLinhaDeBase_Click);
+			this.textInstrucao.Location = new System.Drawing.Point(318, 47);
+			this.textInstrucao.Multiline = true;
+			this.textInstrucao.Name = "textInstrucao";
+			this.textInstrucao.Size = new System.Drawing.Size(248, 294);
+			this.textInstrucao.TabIndex = 12;
 			// 
 			// ExperimentoCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(978, 408);
+			this.ClientSize = new System.Drawing.Size(1239, 408);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel3);
@@ -329,5 +350,7 @@
 		private System.Windows.Forms.ListView listViewCondicoesSelecionadas;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox textInstrucao;
+		private System.Windows.Forms.Label label7;
 	}
 }

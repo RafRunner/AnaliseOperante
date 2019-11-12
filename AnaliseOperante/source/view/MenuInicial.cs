@@ -125,22 +125,37 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 			new ExperimentoCrud(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text)).ShowDialog();
-			CarregarListaCondicao();
+			CarregarListaExperimento();
 		}
 
 		private void btnCriarExperimento_Click(object sender, EventArgs e) {
 			new ExperimentoCrud().ShowDialog();
-			CarregarListaCondicao();
+			CarregarListaExperimento();
 		}
 
 		private void btnSelecionarExperimento_Click(object sender, EventArgs e) {
-			if (listViewCondicao.SelectedItems.Count == 0) {
+			if (listViewExperimento.SelectedItems.Count == 0) {
 				MessageBox.Show("Nenhum Experimento selecionado!", "Advertência");
 				return;
 			}
 			Experimento experimento = ExperimentoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
 			experimentoRealizado.Experimento = experimento;
 			textExperimentoSelecionado.Text = experimento.Nome;
+		}
+
+		private void btnIniciarExperimento_Click(object sender, EventArgs e) {
+			if (experimentoRealizado.Experimento == null) {
+				MessageBox.Show("Por favor, selecione um Experimento antes de começar!", "Advertência");
+				return;
+			}
+
+			experimentoRealizado.NomeParticipante = textNomeParticipante.Text;
+			experimentoRealizado.IdadeParticipante = Convert.ToInt32(numericIdadeParticipante.Value);
+			experimentoRealizado.Grupo = textNomeParticipante.Text;
+			experimentoRealizado.CabineUtilizada = textCabineUtilizada.Text;
+
+			new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false).ShowDialog();
+			new TelaMensagem(experimentoRealizado.Experimento.Instrucao, true).ShowDialog();
 		}
 	}
 }

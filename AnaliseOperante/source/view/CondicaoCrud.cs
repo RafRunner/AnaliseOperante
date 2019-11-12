@@ -147,6 +147,8 @@ namespace AnaliseOperante.source.view {
 			condicao.Nome = textNome.Text;
 			condicao.TempoApresentacao = Convert.ToInt32(numericTempo.Value);
 			condicao.PontosTotais = Convert.ToInt32(numericPontos.Value);
+			condicao.PontosGanhoPassivo = Convert.ToInt32(numericPontosPassivos.Value);
+			condicao.TempoGanhoPassivo = Convert.ToInt32(numericIntervalo.Value);
 			condicao.CorBorda = panelCorBorda.BackColor.ToArgb();
 			condicao.CorFundo = panelCorFundo.BackColor.ToArgb();
 			condicao.CorQuadrado1 = panelCorQuadrado1.BackColor.ToArgb();
@@ -154,7 +156,7 @@ namespace AnaliseOperante.source.view {
 			condicao.CorQuadrado3 = panelCorQuadrado3.BackColor.ToArgb();
 
 			CondicaoService.Salvar(condicao);
-			MessageBox.Show("Feedback salvo com sucesso!", "Sucesso");
+			MessageBox.Show("Condição salvo com sucesso!", "Sucesso");
 			Close();
 		}
 	}

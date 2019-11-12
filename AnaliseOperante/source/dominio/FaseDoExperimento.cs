@@ -22,7 +22,7 @@ namespace AnaliseOperante.source.dominio {
 		public int TempoApresentacao {
 			get => tempoApresentacao;
 			set {
-				tempoApresentacao = GreaterThanZeroCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
+				tempoApresentacao = NonNegativeCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
 			}
 		}
 
@@ -38,7 +38,7 @@ namespace AnaliseOperante.source.dominio {
 
 		public int PontosPerdidos { get; protected set; }
 
-		//Métodos responsáveis por alterar os ponto ganhos, perdidos e totais, além de cuidar de outros efeitos colaterias inerentes ao feedback não dependentes da tela (sons e etc);
+		// Métodos responsáveis por alterar os ponto ganhos, perdidos e totais, além de cuidar de outros efeitos colaterias inerentes ao feedback não dependentes da tela (sons e etc);
 		public abstract void ToqueQuadrado1();
 		public abstract void ToqueQuadrado2();
 		public abstract void ToqueQuadrado3();
@@ -47,7 +47,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado1 {
 			get => corQuadrado1;
 			set {
-				corQuadrado1 = NullCheck(value, "Cor do Quadrado 1", "Linha de Base Ou Condição");
+				corQuadrado1 = value;
 				ColorQuadrado1 = Color.FromArgb(corQuadrado1);
 			}
 		}
@@ -57,7 +57,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado2 {
 			get => corQuadrado2;
 			set {
-				corQuadrado2 = NullCheck(value, "Cor do Quadrado 2", "Linha de Base Ou Condição");
+				corQuadrado2 = value;
 				ColorQuadrado2 = Color.FromArgb(corQuadrado2);
 			}
 		}
@@ -67,7 +67,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorQuadrado3 {
 			get => corQuadrado3;
 			set {
-				corQuadrado3 = NullCheck(value, "Cor do Quadrado 3", "Linha de Base Ou Condição");
+				corQuadrado3 = value;
 				ColorQuadrado3 = Color.FromArgb(corQuadrado3);
 			}
 		}
@@ -77,7 +77,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorBorda {
 			get => corBorda;
 			set {
-				corBorda = NullCheck(value, "Cor da Borda", "Linha de Base Ou Condição");
+				corBorda = value;
 				ColorBorda = Color.FromArgb(corBorda);
 			}
 		}
@@ -87,7 +87,7 @@ namespace AnaliseOperante.source.dominio {
 		public int CorFundo {
 			get => corFundo;
 			set {
-				corFundo = NullCheck(value, "Cor do Fundo", "Linha de Base Ou Condição");
+				corFundo = value;
 				ColorFundo = Color.FromArgb(corFundo);
 			}
 		}

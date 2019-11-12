@@ -19,6 +19,10 @@ namespace AnaliseOperante.source.services {
 		}
 
 		public static void Salvar(Condicao condicao) {
+			if (condicao.IdFeedBackQuadrado1 == 0 || condicao.IdFeedBackQuadrado2 == 0 || condicao.IdFeedBackQuadrado3 == 0) {
+				throw new Exception("Nenhum feedback da condição pode ser nulo!");
+			}
+
 			AbstractService.Salvar<Condicao>(condicao, TABELA_Condicao,
 				$"INSERT INTO {TABELA_Condicao} (Nome, CorQuadrado1, CorQuadrado2, CorQuadrado3, CorFundo, CorBorda, TempoApresentacao, PontosTotais, TempoGanhoPassivo, PontosGanhoPassivo, IdFeedBackQuadrado1, IdFeedBackQuadrado2, IdFeedBackQuadrado3) VALUES (@Nome, @CorQuadrado1, @CorQuadrado2, @CorQuadrado3, @CorFundo, @CorBorda, @TempoApresentacao, @PontosTotais, @TempoGanhoPassivo, @PontosGanhoPassivo, @IdFeedBackQuadrado1, @IdFeedBackQuadrado2, @IdFeedBackQuadrado3)",
 				$"UPDATE {TABELA_Condicao} SET Nome = @Nome, CorQuadrado1 = @CorQuadrado1, CorQuadrado2 = @CorQuadrado2, CorQuadrado3 = @CorQuadrado3, CorFundo = @CorFundo, CorBorda = @CorBorda, TempoApresentacao = @TempoApresentacao,  PontosTotais =@PontosTotais, TempoGanhoPassivo = @TempoGanhoPassivo, PontosGanhoPassivo = @PontosGanhoPassivo, IdFeedBackQuadrado1 = @IdFeedBackQuadrado1, IdFeedBackQuadrado2 = @IdFeedBackQuadrado2, IdFeedBackQuadrado3 = @IdFeedBackQuadrado3");

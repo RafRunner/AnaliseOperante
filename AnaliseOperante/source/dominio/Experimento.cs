@@ -16,7 +16,15 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		public long IdLinhaDeBase { private get; set; }
+		private string instrucao;
+		public string Instrucao {
+			get => instrucao;
+			set {
+				instrucao = NullEmptyBlankCheck(value, "Instrução", "Experimento");
+			}
+		}
+
+		public long IdLinhaDeBase { get; set; }
 		private LinhaDeBase linhaDeBase;
 		public LinhaDeBase LinhaDeBase {
 			get {
@@ -31,6 +39,6 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		public List<Condicao> Condicoes { get; set; }
+		public List<Condicao> Condicoes = new List<Condicao>();
 	}
 }
