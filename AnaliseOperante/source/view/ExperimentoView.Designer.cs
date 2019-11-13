@@ -30,14 +30,14 @@
 			this.Borda1 = new System.Windows.Forms.Panel();
 			this.Quadrado1 = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
 			this.labelPontosPerdidos = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
 			this.labelPontosTotais = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.labelPontosGanhos = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.Borda3.SuspendLayout();
 			this.Quadrado3.SuspendLayout();
 			this.Borda2.SuspendLayout();
@@ -67,9 +67,9 @@
 			// Borda2
 			// 
 			this.Borda2.Controls.Add(this.Quadrado2);
-			this.Borda2.Location = new System.Drawing.Point(140, 140);
+			this.Borda2.Location = new System.Drawing.Point(145, 137);
 			this.Borda2.Name = "Borda2";
-			this.Borda2.Size = new System.Drawing.Size(350, 350);
+			this.Borda2.Size = new System.Drawing.Size(375, 375);
 			this.Borda2.TabIndex = 0;
 			// 
 			// Quadrado2
@@ -77,22 +77,22 @@
 			this.Quadrado2.Controls.Add(this.Borda1);
 			this.Quadrado2.Location = new System.Drawing.Point(15, 15);
 			this.Quadrado2.Name = "Quadrado2";
-			this.Quadrado2.Size = new System.Drawing.Size(320, 320);
+			this.Quadrado2.Size = new System.Drawing.Size(345, 345);
 			this.Quadrado2.TabIndex = 0;
 			// 
 			// Borda1
 			// 
 			this.Borda1.Controls.Add(this.Quadrado1);
-			this.Borda1.Location = new System.Drawing.Point(72, 72);
+			this.Borda1.Location = new System.Drawing.Point(89, 82);
 			this.Borda1.Name = "Borda1";
 			this.Borda1.Size = new System.Drawing.Size(175, 175);
 			this.Borda1.TabIndex = 0;
 			// 
 			// Quadrado1
 			// 
-			this.Quadrado1.Location = new System.Drawing.Point(11, 11);
+			this.Quadrado1.Location = new System.Drawing.Point(12, 12);
 			this.Quadrado1.Name = "Quadrado1";
-			this.Quadrado1.Size = new System.Drawing.Size(155, 155);
+			this.Quadrado1.Size = new System.Drawing.Size(152, 152);
 			this.Quadrado1.TabIndex = 0;
 			// 
 			// panel1
@@ -105,25 +105,15 @@
 			this.panel1.Size = new System.Drawing.Size(292, 155);
 			this.panel1.TabIndex = 1;
 			// 
-			// panel2
+			// labelPontosPerdidos
 			// 
-			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel2.Controls.Add(this.labelPontosTotais);
-			this.panel2.Controls.Add(this.label2);
-			this.panel2.Location = new System.Drawing.Point(794, 13);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(292, 155);
-			this.panel2.TabIndex = 2;
-			// 
-			// panel3
-			// 
-			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel3.Controls.Add(this.labelPontosGanhos);
-			this.panel3.Controls.Add(this.label3);
-			this.panel3.Location = new System.Drawing.Point(1616, 12);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(292, 155);
-			this.panel3.TabIndex = 2;
+			this.labelPontosPerdidos.AutoSize = true;
+			this.labelPontosPerdidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPontosPerdidos.Location = new System.Drawing.Point(106, 62);
+			this.labelPontosPerdidos.Name = "labelPontosPerdidos";
+			this.labelPontosPerdidos.Size = new System.Drawing.Size(68, 73);
+			this.labelPontosPerdidos.TabIndex = 1;
+			this.labelPontosPerdidos.Text = "0";
 			// 
 			// label1
 			// 
@@ -135,6 +125,26 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "PONTOS PERDIDOS";
 			// 
+			// panel2
+			// 
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.labelPontosTotais);
+			this.panel2.Controls.Add(this.label2);
+			this.panel2.Location = new System.Drawing.Point(794, 13);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(292, 155);
+			this.panel2.TabIndex = 2;
+			// 
+			// labelPontosTotais
+			// 
+			this.labelPontosTotais.AutoSize = true;
+			this.labelPontosTotais.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelPontosTotais.Location = new System.Drawing.Point(114, 62);
+			this.labelPontosTotais.Name = "labelPontosTotais";
+			this.labelPontosTotais.Size = new System.Drawing.Size(68, 73);
+			this.labelPontosTotais.TabIndex = 2;
+			this.labelPontosTotais.Text = "0";
+			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
@@ -145,35 +155,15 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "PONTOS TOTAIS";
 			// 
-			// label3
+			// panel3
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(61, 23);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(177, 24);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "PONTOS GANHOS";
-			// 
-			// labelPontosPerdidos
-			// 
-			this.labelPontosPerdidos.AutoSize = true;
-			this.labelPontosPerdidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPontosPerdidos.Location = new System.Drawing.Point(106, 62);
-			this.labelPontosPerdidos.Name = "labelPontosPerdidos";
-			this.labelPontosPerdidos.Size = new System.Drawing.Size(68, 73);
-			this.labelPontosPerdidos.TabIndex = 1;
-			this.labelPontosPerdidos.Text = "0";
-			// 
-			// labelPontosTotais
-			// 
-			this.labelPontosTotais.AutoSize = true;
-			this.labelPontosTotais.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPontosTotais.Location = new System.Drawing.Point(108, 62);
-			this.labelPontosTotais.Name = "labelPontosTotais";
-			this.labelPontosTotais.Size = new System.Drawing.Size(68, 73);
-			this.labelPontosTotais.TabIndex = 2;
-			this.labelPontosTotais.Text = "0";
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel3.Controls.Add(this.labelPontosGanhos);
+			this.panel3.Controls.Add(this.label3);
+			this.panel3.Location = new System.Drawing.Point(1616, 12);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(292, 155);
+			this.panel3.TabIndex = 2;
 			// 
 			// labelPontosGanhos
 			// 
@@ -184,6 +174,16 @@
 			this.labelPontosGanhos.Size = new System.Drawing.Size(68, 73);
 			this.labelPontosGanhos.TabIndex = 3;
 			this.labelPontosGanhos.Text = "0";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(61, 23);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(177, 24);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "PONTOS GANHOS";
 			// 
 			// ExperimentoView
 			// 

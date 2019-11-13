@@ -12,6 +12,10 @@ namespace AnaliseOperante.source.services {
 	public class ExperimentoParaCondicaoService : AbstractService {
 
 		public static List<Condicao> GetAllCondicoesByExperimento(Experimento experimento) {
+			if (experimento == null) {
+				return null;
+			}
+
 			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
 				List<ExperimentoParaCondicao> experimentoParaCondicoes = cnn.Query<ExperimentoParaCondicao>("SELECT * FROM ExperimentoParaCondicao WHERE IdExperimento = @Id ORDER BY Ordem", experimento).ToList();
 

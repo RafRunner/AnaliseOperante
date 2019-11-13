@@ -154,8 +154,12 @@ namespace AnaliseOperante.source.view {
 			experimentoRealizado.Grupo = textNomeParticipante.Text;
 			experimentoRealizado.CabineUtilizada = textCabineUtilizada.Text;
 
-			new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false).ShowDialog();
-			new TelaMensagem(experimentoRealizado.Experimento.Instrucao, true).ShowDialog();
+			TelaMensagem telaInicio = new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false);
+			TelaMensagem telaInstrucao = new TelaMensagem(experimentoRealizado.Experimento.Instrucao, true);
+			telaInicio.ShowDialog();
+			telaInstrucao.ShowDialog();
+
+			new ExperimentoView(experimentoRealizado).ShowDialog();
 		}
 	}
 }
