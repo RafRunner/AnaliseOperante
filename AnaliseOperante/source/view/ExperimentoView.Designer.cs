@@ -63,6 +63,7 @@
 			this.Quadrado3.Name = "Quadrado3";
 			this.Quadrado3.Size = new System.Drawing.Size(670, 670);
 			this.Quadrado3.TabIndex = 0;
+			this.Quadrado3.Click += new System.EventHandler(this.Quadrado3_Click);
 			// 
 			// Borda2
 			// 
@@ -79,6 +80,7 @@
 			this.Quadrado2.Name = "Quadrado2";
 			this.Quadrado2.Size = new System.Drawing.Size(345, 345);
 			this.Quadrado2.TabIndex = 0;
+			this.Quadrado2.Click += new System.EventHandler(this.Quadrado2_Click);
 			// 
 			// Borda1
 			// 
@@ -94,9 +96,11 @@
 			this.Quadrado1.Name = "Quadrado1";
 			this.Quadrado1.Size = new System.Drawing.Size(152, 152);
 			this.Quadrado1.TabIndex = 0;
+			this.Quadrado1.Click += new System.EventHandler(this.Quadrado1_Click);
 			// 
 			// panel1
 			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel1.Controls.Add(this.labelPontosPerdidos);
 			this.panel1.Controls.Add(this.label1);
@@ -127,6 +131,7 @@
 			// 
 			// panel2
 			// 
+			this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.labelPontosTotais);
 			this.panel2.Controls.Add(this.label2);
@@ -157,6 +162,7 @@
 			// 
 			// panel3
 			// 
+			this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.labelPontosGanhos);
 			this.panel3.Controls.Add(this.label3);

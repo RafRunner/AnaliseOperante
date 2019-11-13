@@ -30,7 +30,7 @@ namespace AnaliseOperante.source.dominio {
 		public int PontosTotais {
 			get => pontosTotais;
 			set {
-				pontosTotais = GreaterThanZeroCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
+				pontosTotais = NonNegativeCheck(value, "Pontos Totais", "Linha de Base Ou Condição");
 			}
 		}
 
