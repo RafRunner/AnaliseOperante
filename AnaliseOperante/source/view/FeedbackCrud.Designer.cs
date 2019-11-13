@@ -23,7 +23,9 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedbackCrud));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
 			this.numericPontos = new System.Windows.Forms.NumericUpDown();
 			this.label10 = new System.Windows.Forms.Label();
 			this.btnSalvar = new System.Windows.Forms.Button();
@@ -33,7 +35,6 @@
 			this.textNomeAudio = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).BeginInit();
@@ -57,6 +58,17 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(496, 278);
 			this.panel1.TabIndex = 3;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(387, 66);
+			this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(104, 29);
+			this.button1.TabIndex = 33;
+			this.button1.Text = "Selecionar";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// numericPontos
 			// 
@@ -154,17 +166,6 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Feedback";
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(387, 66);
-			this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(104, 29);
-			this.button1.TabIndex = 33;
-			this.button1.Text = "Selecionar";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// FeedbackCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -173,6 +174,7 @@
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "FeedbackCrud";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

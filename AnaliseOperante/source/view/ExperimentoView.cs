@@ -68,6 +68,7 @@ namespace AnaliseOperante.source.view {
 
 		private void ApresentarLinhaDeBase(LinhaDeBase linhaDeBase) {
 			if (linhaDeBase == null) {
+				ApresentarCondicoes(experimento.Condicoes);
 				return;
 			}
 			faseAtual = linhaDeBase;
@@ -89,8 +90,12 @@ namespace AnaliseOperante.source.view {
 		}
 
 		private void IniciarTimerPontosPassivos(Condicao condicao) {
+			if (timerPontosPassivos != null) {
+				timerPontosPassivos.Stop();
+			}
+
 			timerPontosPassivos = new Timer {
-				Interval = Convert.ToInt32(condicao.TempoGanhoPassivo)
+				Interval = Convert.ToInt32(condicao.TempoGanhoPassivo) * 1000
 			};
 			timerPontosPassivos.Tick += new EventHandler(EventoPontosPassivos);
 			timerPontosPassivos.Start();

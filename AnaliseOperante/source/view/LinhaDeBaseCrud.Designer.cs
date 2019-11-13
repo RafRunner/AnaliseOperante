@@ -23,8 +23,11 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LinhaDeBaseCrud));
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.numericPontos = new System.Windows.Forms.NumericUpDown();
+			this.label9 = new System.Windows.Forms.Label();
 			this.btnSalvar = new System.Windows.Forms.Button();
 			this.btnCorQuadrado3 = new System.Windows.Forms.Button();
 			this.panelCorQuadrado3 = new System.Windows.Forms.Panel();
@@ -46,11 +49,9 @@
 			this.textNome = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
-			this.numericPontos = new System.Windows.Forms.NumericUpDown();
-			this.label9 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -94,6 +95,28 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(496, 510);
 			this.panel1.TabIndex = 1;
+			// 
+			// numericPontos
+			// 
+			this.numericPontos.Location = new System.Drawing.Point(221, 121);
+			this.numericPontos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.numericPontos.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.numericPontos.Name = "numericPontos";
+			this.numericPontos.Size = new System.Drawing.Size(155, 25);
+			this.numericPontos.TabIndex = 22;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(218, 97);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(92, 19);
+			this.label9.TabIndex = 21;
+			this.label9.Text = "Pontos Totais";
 			// 
 			// btnSalvar
 			// 
@@ -295,28 +318,6 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Nome";
 			// 
-			// numericPontos
-			// 
-			this.numericPontos.Location = new System.Drawing.Point(221, 121);
-			this.numericPontos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.numericPontos.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-			this.numericPontos.Name = "numericPontos";
-			this.numericPontos.Size = new System.Drawing.Size(155, 25);
-			this.numericPontos.TabIndex = 22;
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(218, 97);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(92, 19);
-			this.label9.TabIndex = 21;
-			this.label9.Text = "Pontos Totais";
-			// 
 			// LinhaDeBaseCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -325,14 +326,15 @@
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.Name = "LinhaDeBaseCrud";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "LinhaDeBaseCrud";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontos)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericTempo)).EndInit();
 			this.ResumeLayout(false);
 
 		}

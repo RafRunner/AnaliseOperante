@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExperimentoCrud));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btnSelecionarLinhaDeBase = new System.Windows.Forms.Button();
 			this.listViewLinhaDeBase = new System.Windows.Forms.ListView();
@@ -34,6 +35,8 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.textInstrucao = new System.Windows.Forms.TextBox();
+			this.label7 = new System.Windows.Forms.Label();
 			this.btnRemoverLinhaDeBase = new System.Windows.Forms.Button();
 			this.btnRemoverCondicao = new System.Windows.Forms.Button();
 			this.label6 = new System.Windows.Forms.Label();
@@ -45,8 +48,6 @@
 			this.listViewCondicoesSelecionadas = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label3 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.textInstrucao = new System.Windows.Forms.TextBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -180,6 +181,23 @@
 			this.panel3.Size = new System.Drawing.Size(573, 384);
 			this.panel3.TabIndex = 9;
 			// 
+			// textInstrucao
+			// 
+			this.textInstrucao.Location = new System.Drawing.Point(318, 47);
+			this.textInstrucao.Multiline = true;
+			this.textInstrucao.Name = "textInstrucao";
+			this.textInstrucao.Size = new System.Drawing.Size(248, 294);
+			this.textInstrucao.TabIndex = 12;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(315, 26);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(62, 17);
+			this.label7.TabIndex = 11;
+			this.label7.Text = "Instrução";
+			// 
 			// btnRemoverLinhaDeBase
 			// 
 			this.btnRemoverLinhaDeBase.Location = new System.Drawing.Point(8, 121);
@@ -285,23 +303,6 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Experimento";
 			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(315, 26);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(62, 17);
-			this.label7.TabIndex = 11;
-			this.label7.Text = "Instrução";
-			// 
-			// textInstrucao
-			// 
-			this.textInstrucao.Location = new System.Drawing.Point(318, 47);
-			this.textInstrucao.Multiline = true;
-			this.textInstrucao.Name = "textInstrucao";
-			this.textInstrucao.Size = new System.Drawing.Size(248, 294);
-			this.textInstrucao.TabIndex = 12;
-			// 
 			// ExperimentoCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -312,6 +313,7 @@
 			this.Controls.Add(this.panel3);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "ExperimentoCrud";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

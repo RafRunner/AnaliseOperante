@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CondicaoCrud));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.numericIntervalo = new System.Windows.Forms.NumericUpDown();
 			this.label12 = new System.Windows.Forms.Label();
@@ -133,9 +134,9 @@
 			this.label12.AutoSize = true;
 			this.label12.Location = new System.Drawing.Point(223, 229);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(156, 17);
+			this.label12.Size = new System.Drawing.Size(225, 17);
 			this.label12.TabIndex = 35;
-			this.label12.Text = "Intervalo Pontos Passivos";
+			this.label12.Text = "Intervalo Pontos Passivos (segundos)";
 			// 
 			// numericPontosPassivos
 			// 
@@ -535,6 +536,7 @@
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "CondicaoCrud";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

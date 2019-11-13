@@ -101,7 +101,8 @@ namespace AnaliseOperante.source.view {
 			}
 
 			experimento.Condicoes.Remove(experimento.Condicoes.Find(it => it.Id == Convert.ToInt64(listViewCondicoesSelecionadas.SelectedItems[0].SubItems[1].Text)));
-			listViewCondicao.Items.Remove(listViewCondicoesSelecionadas.SelectedItems[0]);
+			listViewCondicao.Items.Clear();
+			experimento.Condicoes.ForEach(it => AdicionaCondicaoEscolhida(it));
 		}
 
 		private void btnSalvarExperimento_Click(object sender, EventArgs e) {
