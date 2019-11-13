@@ -66,6 +66,11 @@ namespace AnaliseOperante.source.view {
 		private void btnSalvar_Click(object sender, EventArgs e) {
 			string nome = textNome.Text;
 			int tempo = Convert.ToInt32(numericTempo.Value);
+
+			if (tempo == 0) {
+				throw new Exception("O tempo de apresentação de uma Linha de Base não pode ser zero!");
+			}
+
 			int pontosTotais = Convert.ToInt32(numericPontos.Value);
 
 			int corFundo = panelCorFundo.BackColor.ToArgb();

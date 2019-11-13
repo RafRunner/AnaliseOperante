@@ -144,7 +144,7 @@
 			// 
 			this.labelPontosTotais.AutoSize = true;
 			this.labelPontosTotais.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelPontosTotais.Location = new System.Drawing.Point(114, 62);
+			this.labelPontosTotais.Location = new System.Drawing.Point(110, 62);
 			this.labelPontosTotais.Name = "labelPontosTotais";
 			this.labelPontosTotais.Size = new System.Drawing.Size(68, 73);
 			this.labelPontosTotais.TabIndex = 2;

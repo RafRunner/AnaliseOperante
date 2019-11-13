@@ -16,6 +16,7 @@ namespace AnaliseOperante.source.view {
 		private readonly Experimento experimento;
 
 		private Timer timerAtual;
+		private Timer timerPontosPassivos;
 
 		private FaseDoExperimento faseAtual;
 
@@ -59,6 +60,12 @@ namespace AnaliseOperante.source.view {
 			taskCondicaoAtual.TrySetResult(true);
 		}
 
+		private void EventoPontosPassivos(Object myObject, EventArgs myEventArgs) {
+			(faseAtual as Condicao).AplicarGanhoPassivo();
+			AtualizarLabelsPontos(faseAtual);
+			CheckFimCondicao(faseAtual as Condicao);
+		}
+
 		private void ApresentarLinhaDeBase(LinhaDeBase linhaDeBase) {
 			if (linhaDeBase == null) {
 				return;
@@ -81,17 +88,34 @@ namespace AnaliseOperante.source.view {
 			labelPontosPerdidos.Text = fase.PontosPerdidos.ToString();
 		}
 
-		private void ApresentarCondicao(Condicao Condicao) {
-			faseAtual = Condicao;
-			ColorirTela(Condicao);
-
-			AtualizarLabelsPontos(Condicao);
-
-			timerAtual = new Timer {
-				Interval = Convert.ToInt32(Condicao.TempoApresentacao) * 1000
+		private void IniciarTimerPontosPassivos(Condicao condicao) {
+			timerPontosPassivos = new Timer {
+				Interval = Convert.ToInt32(condicao.TempoGanhoPassivo)
 			};
-			timerAtual.Tick += new EventHandler(EventoFimCondicao);
-			timerAtual.Start();
+			timerPontosPassivos.Tick += new EventHandler(EventoPontosPassivos);
+			timerPontosPassivos.Start();
+		}
+
+		private void ApresentarCondicao(Condicao condicao) {
+			faseAtual = condicao;
+			ColorirTela(condicao);
+
+			AtualizarLabelsPontos(condicao);
+
+			if (condicao.TempoApresentacao > 0) {
+				timerAtual = new Timer {
+					Interval = Convert.ToInt32(condicao.TempoApresentacao) * 1000
+				};
+				timerAtual.Tick += new EventHandler(EventoFimCondicao);
+				timerAtual.Start();
+			}
+
+			if (condicao.TempoGanhoPassivo > 0 && condicao.PontosGanhoPassivo != 0) {
+				IniciarTimerPontosPassivos(condicao);
+			}
+			else if (timerPontosPassivos != null) {
+				timerPontosPassivos.Stop();
+			}
 		}
 
 		private async void ApresentarCondicoes(List<Condicao> condicoes) {
@@ -100,35 +124,62 @@ namespace AnaliseOperante.source.view {
 				ApresentarCondicao(condicao);
 				await taskCondicaoAtual.Task;
 			}
+
+			if (timerPontosPassivos != null) {
+				timerPontosPassivos.Stop();
+			}
+
 			Close();
 		}
 
 		private void CheckFimCondicao(Condicao condicao) {
 			if (condicao.PontosTotais == 0) {
-				taskCondicaoAtual.SetResult(true);
+				taskCondicaoAtual.TrySetResult(true);
 			}
 		}
 
 		private void ComportamentoClickQuadrado(FaseDoExperimento fase) {
-			AtualizarLabelsPontos(faseAtual);
+			AtualizarLabelsPontos(fase);
 			if (fase is Condicao) {
 				CheckFimCondicao(fase as Condicao);
+			}
+		}
+
+		private void ComportamentoPontosPassivos(int pontosFeedback, Condicao condicao) {
+			if ((pontosFeedback < 0 && condicao.PontosGanhoPassivo > 0) || (pontosFeedback > 0 && condicao.PontosGanhoPassivo < 0)) {
+				IniciarTimerPontosPassivos(condicao);
 			}
 		}
 
 		private void Quadrado1_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado1();
 			ComportamentoClickQuadrado(faseAtual);
+
+			if (faseAtual is Condicao) {
+				Condicao condicao = faseAtual as Condicao;
+				ComportamentoPontosPassivos(condicao.FeedBackQuadrado1.Pontos, condicao);
+			}
 		}
 
 		private void Quadrado2_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado2();
 			ComportamentoClickQuadrado(faseAtual);
+
+			if (faseAtual is Condicao) {
+				Condicao condicao = faseAtual as Condicao;
+				ComportamentoPontosPassivos(condicao.FeedBackQuadrado2.Pontos, condicao);
+			}
 		}
 
 		private void Quadrado3_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado3();
 			ComportamentoClickQuadrado(faseAtual);
+
+			if (faseAtual is Condicao) {
+				Condicao condicao = faseAtual as Condicao;
+				ComportamentoPontosPassivos(condicao.FeedBackQuadrado3.Pontos, condicao);
+			}
 		}
+
 	}
 }

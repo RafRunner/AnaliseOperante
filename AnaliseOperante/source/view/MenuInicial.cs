@@ -143,7 +143,7 @@ namespace AnaliseOperante.source.view {
 			textExperimentoSelecionado.Text = experimento.Nome;
 		}
 
-		private void btnIniciarExperimento_Click(object sender, EventArgs e) {
+		private async void btnIniciarExperimento_Click(object sender, EventArgs e) {
 			if (experimentoRealizado.Experimento == null) {
 				MessageBox.Show("Por favor, selecione um Experimento antes de começar!", "Advertência");
 				return;
@@ -154,12 +154,18 @@ namespace AnaliseOperante.source.view {
 			experimentoRealizado.Grupo = textNomeParticipante.Text;
 			experimentoRealizado.CabineUtilizada = textCabineUtilizada.Text;
 
-			TelaMensagem telaInicio = new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false);
-			TelaMensagem telaInstrucao = new TelaMensagem(experimentoRealizado.Experimento.Instrucao, true);
-			telaInicio.ShowDialog();
-			telaInstrucao.ShowDialog();
+			TelaMensagem telaMensagem = new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false);
+			telaMensagem.Show();
+			await telaMensagem.GetTask().Task;
+
+			telaMensagem.AlterarPropriedades(experimentoRealizado.Experimento.Instrucao, true);
+			telaMensagem.Show();
+			await telaMensagem.GetTask().Task;
 
 			new ExperimentoView(experimentoRealizado).ShowDialog();
+
+			telaMensagem.AlterarPropriedades("Experimento finalizado! Por favor, chamar o(a) experimentador(a).", false);
+			telaMensagem.Show();
 		}
 	}
 }

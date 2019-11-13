@@ -11,15 +11,26 @@ using System.Windows.Forms;
 namespace AnaliseOperante.source.view {
 	public partial class TelaMensagem : Form {
 
-		private readonly bool mostrarBotao;
+		private bool mostrarBotao;
+
+		private TaskCompletionSource<bool> taskAtual;
 
 		public TelaMensagem(string mensagem, bool mostrarBotao) {
 			InitializeComponent();
 
+			AlterarPropriedades(mensagem, mostrarBotao);
+		}
+
+		public void AlterarPropriedades(string mensagem, bool mostrarBotao) {
 			this.mostrarBotao = mostrarBotao;
 
 			labelMensagem.Text = IdentarMensagem(mensagem);
 			btnContinuar.Visible = mostrarBotao;
+			taskAtual = new TaskCompletionSource<bool>(false);
+		}
+
+		public TaskCompletionSource<bool> GetTask() {
+			return taskAtual;
 		}
 
 		private string IdentarMensagem(string mensagem) {
@@ -55,13 +66,13 @@ namespace AnaliseOperante.source.view {
 
 		private void btnContinuar_Click(object sender, EventArgs e) {
 			if (mostrarBotao) {
-				Close();
+				taskAtual.SetResult(true);
 			}
 		}
 
 		private void labelMensagem_Click(object sender, EventArgs e) {
 			if (!mostrarBotao) {
-				Close();
+				taskAtual.SetResult(true);
 			}
 		}
 	}

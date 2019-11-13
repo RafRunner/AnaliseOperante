@@ -79,5 +79,9 @@ namespace AnaliseOperante.source.dominio {
 			AtulizarPontos(pontosFeedback);
 			FeedBackQuadrado3.PlayAudio();
 		}
+
+		public void AplicarGanhoPassivo() {
+			AtulizarPontos(PontosGanhoPassivo);
+		}
 	}
 }
