@@ -28,6 +28,9 @@ namespace AnaliseOperante.source.view {
 			this.experimentoRealizado = experimentoRealizado;
 			experimento = experimentoRealizado.Experimento;
 
+			experimentoRealizado.DateTimeInicio = DateTime.Now;
+			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando o experimento de nome '{experimento.Nome}'", "Inicialização"));
+
 			ApresentarLinhaDeBase(experimento.LinhaDeBase);
 		}
 
@@ -52,18 +55,27 @@ namespace AnaliseOperante.source.view {
 
 		private void EventoFimTempoLinhaDeBase(Object myObject, EventArgs myEventArgs) {
 			timerAtual.Stop();
+			experimentoRealizado.RegistrarEvento(new Evento($"Tempo de apresentação da Linha de Base '{faseAtual.Nome}' ({faseAtual.TempoApresentacao} segundos) finalizado", "LinhaDeBase"));
 			ApresentarCondicoes(experimento.Condicoes);
 		}
 
 		private void EventoFimCondicao(Object myObject, EventArgs myEventArgs) {
 			timerAtual.Stop();
+			experimentoRealizado.RegistrarEvento(new Evento($"Tempo de apresentação máximo da Condição '{faseAtual.Nome}' ({faseAtual.TempoApresentacao} segundos) finalizado", "Condição"));
 			taskCondicaoAtual.TrySetResult(true);
 		}
 
 		private void EventoPontosPassivos(Object myObject, EventArgs myEventArgs) {
-			(faseAtual as Condicao).AplicarGanhoPassivo();
+			Condicao condicao = faseAtual as Condicao;
+
+			if (condicao == null) {
+				return;
+			}
+
+			experimentoRealizado.RegistrarEvento(new Evento($"Participante recebeu {condicao.PontosGanhoPassivo} pontos passivamente!", "Condição"));
+			condicao.AplicarGanhoPassivo();
 			AtualizarLabelsPontos(faseAtual);
-			CheckFimCondicao(faseAtual as Condicao);
+			CheckFimCondicao(condicao);
 		}
 
 		private void ApresentarLinhaDeBase(LinhaDeBase linhaDeBase) {
@@ -73,6 +85,10 @@ namespace AnaliseOperante.source.view {
 			}
 			faseAtual = linhaDeBase;
 			ColorirTela(linhaDeBase);
+
+			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Linha de Base '{linhaDeBase.Nome}', com tempo de apresentação de {linhaDeBase.TempoApresentacao} segundos", "LinhaDeBase"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{linhaDeBase.ColorFundo.Name}', Cor da borda: '{linhaDeBase.ColorFundo.Name}'", "LinhaDeBase"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cores dos quadrados em ordem interior para exterior: '{linhaDeBase.ColorQuadrado1.Name}', '{linhaDeBase.ColorQuadrado2.Name}', '{linhaDeBase.ColorQuadrado3.Name}'", "LinhaDeBase"));
 
 			AtualizarLabelsPontos(linhaDeBase);
 
@@ -105,6 +121,10 @@ namespace AnaliseOperante.source.view {
 			faseAtual = condicao;
 			ColorirTela(condicao);
 
+			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Condição '{condicao.Nome}', com tempo máximo de {condicao.TempoApresentacao} segundos, tempo de ganho passivo de {condicao.TempoGanhoPassivo} segundos e quantidade ganha passivamente de {condicao.PontosGanhoPassivo}", "Condição"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{condicao.ColorFundo.Name}', Cor da borda: '{condicao.ColorFundo.Name}'", "Condição"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cores dos quadrados em ordem interior para exterior: '{condicao.ColorQuadrado1.Name}', '{condicao.ColorQuadrado2.Name}', '{condicao.ColorQuadrado3.Name}'", "Condição"));
+
 			AtualizarLabelsPontos(condicao);
 
 			if (condicao.TempoApresentacao > 0) {
@@ -124,14 +144,23 @@ namespace AnaliseOperante.source.view {
 		}
 
 		private async void ApresentarCondicoes(List<Condicao> condicoes) {
-			foreach (Condicao condicao in condicoes) {
-				taskCondicaoAtual = new TaskCompletionSource<bool>(false);
-				ApresentarCondicao(condicao);
-				await taskCondicaoAtual.Task;
-			}
 
-			if (timerPontosPassivos != null) {
-				timerPontosPassivos.Stop();
+			if (condicoes.Count > 0) { 
+				experimentoRealizado.RegistrarEvento(new Evento($"Iniciando apresentação de {condicoes.Count.ToString()} condições", "Intervalo"));
+
+				foreach (Condicao condicao in condicoes) {
+					taskCondicaoAtual = new TaskCompletionSource<bool>(false);
+					ApresentarCondicao(condicao);
+					await taskCondicaoAtual.Task;
+					experimentoRealizado.RegistrarEvento(new Evento($"Apresentação da condição '{condicao.Nome}' finalizada", "Condição"));
+				}
+
+				if (timerPontosPassivos != null) {
+					timerPontosPassivos.Stop();
+				}
+			}
+			else {
+				experimentoRealizado.RegistrarEvento(new Evento($"Não existem condições nesse experimento para serem apresentadas", "Intervalo"));
 			}
 
 			Close();
@@ -140,6 +169,7 @@ namespace AnaliseOperante.source.view {
 		private void CheckFimCondicao(Condicao condicao) {
 			if (condicao.PontosTotais == 0) {
 				taskCondicaoAtual.TrySetResult(true);
+				experimentoRealizado.RegistrarEvento(new Evento($"Total de pontos da condição '{condicao.Nome}' chegou a 0", "Condição"));
 			}
 		}
 
@@ -162,7 +192,11 @@ namespace AnaliseOperante.source.view {
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 1, recebendo {condicao.FeedBackQuadrado1.Pontos} pontos", "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado1.Pontos, condicao);
+			}
+			else {
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 1", "LinhaDeBase"));
 			}
 		}
 
@@ -172,7 +206,11 @@ namespace AnaliseOperante.source.view {
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 2, recebendo {condicao.FeedBackQuadrado2.Pontos} pontos", "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado2.Pontos, condicao);
+			}
+			else {
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 2", "LinhaDeBase"));
 			}
 		}
 
@@ -182,7 +220,11 @@ namespace AnaliseOperante.source.view {
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3, recebendo {condicao.FeedBackQuadrado3.Pontos} pontos", "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado3.Pontos, condicao);
+			}
+			else {
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3", "LinhaDeBase"));
 			}
 		}
 

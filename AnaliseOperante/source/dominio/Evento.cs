@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 namespace AnaliseOperante.source.dominio {
 	public class Evento : EntidadeDeBanco {
 
+		public Evento(string texto, string origem) {
+			Texto = texto;
+			Origem = origem;
+		}
+
 		public string Texto { get; set; }
 
 		public string Origem { get; set; }

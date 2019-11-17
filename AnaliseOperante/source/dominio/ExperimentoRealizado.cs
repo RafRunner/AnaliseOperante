@@ -55,8 +55,19 @@ namespace AnaliseOperante.source.dominio {
 			}
 		}
 
-		public string DataHoraInicio { get; private set; }
+		public string DataHoraInicio { get; set; }
 
-		public List<Evento> Eventos { get; set; }
+		private List<Evento> eventos = new List<Evento>();
+
+		public void RegistrarEvento(Evento evento) {
+			eventos.Add(evento);
+			evento.IdExperimento = experimento.Id;
+			evento.Horario = Convert.ToInt64((DateTime.Now - DateTimeInicio).TotalSeconds);
+		}
+
+		public List<Evento> GetListaEventos() {
+			return eventos;
+		}
+
 	}
 }
