@@ -74,6 +74,7 @@
     <Compile Include="source\services\Ambiente.cs" />
     <Compile Include="source\services\AudioService.cs" />
     <Compile Include="source\services\CondicaoService.cs" />
+    <Compile Include="source\services\EventoService.cs" />
     <Compile Include="source\services\ExperimentoParaCondicaoService.cs" />
     <Compile Include="source\services\ExperimentoRealizadoService.cs" />
     <Compile Include="source\services\ExperimentoService.cs" />
