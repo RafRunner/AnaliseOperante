@@ -55,6 +55,7 @@
 			this.Borda3.Name = "Borda3";
 			this.Borda3.Size = new System.Drawing.Size(700, 700);
 			this.Borda3.TabIndex = 0;
+			this.Borda3.Click += new System.EventHandler(this.Borda3_Click);
 			// 
 			// Quadrado3
 			// 
@@ -72,6 +73,7 @@
 			this.Borda2.Name = "Borda2";
 			this.Borda2.Size = new System.Drawing.Size(375, 375);
 			this.Borda2.TabIndex = 0;
+			this.Borda2.Click += new System.EventHandler(this.Borda2_Click);
 			// 
 			// Quadrado2
 			// 
@@ -89,6 +91,7 @@
 			this.Borda1.Name = "Borda1";
 			this.Borda1.Size = new System.Drawing.Size(175, 175);
 			this.Borda1.TabIndex = 0;
+			this.Borda1.Click += new System.EventHandler(this.Borda1_Click);
 			// 
 			// Quadrado1
 			// 
@@ -108,6 +111,7 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(292, 155);
 			this.panel1.TabIndex = 1;
+			this.panel1.Click += new System.EventHandler(this.panel1_Click);
 			// 
 			// labelPontosPerdidos
 			// 
@@ -118,6 +122,7 @@
 			this.labelPontosPerdidos.Size = new System.Drawing.Size(68, 73);
 			this.labelPontosPerdidos.TabIndex = 1;
 			this.labelPontosPerdidos.Text = "0";
+			this.labelPontosPerdidos.Click += new System.EventHandler(this.panel1_Click);
 			// 
 			// label1
 			// 
@@ -128,6 +133,7 @@
 			this.label1.Size = new System.Drawing.Size(190, 24);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "PONTOS PERDIDOS";
+			this.label1.Click += new System.EventHandler(this.panel1_Click);
 			// 
 			// panel2
 			// 
@@ -139,6 +145,7 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(292, 155);
 			this.panel2.TabIndex = 2;
+			this.panel2.Click += new System.EventHandler(this.panel2_Click);
 			// 
 			// labelPontosTotais
 			// 
@@ -149,6 +156,7 @@
 			this.labelPontosTotais.Size = new System.Drawing.Size(68, 73);
 			this.labelPontosTotais.TabIndex = 2;
 			this.labelPontosTotais.Text = "0";
+			this.labelPontosTotais.Click += new System.EventHandler(this.panel2_Click);
 			// 
 			// label2
 			// 
@@ -159,6 +167,7 @@
 			this.label2.Size = new System.Drawing.Size(163, 24);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "PONTOS TOTAIS";
+			this.label2.Click += new System.EventHandler(this.panel2_Click);
 			// 
 			// panel3
 			// 
@@ -170,6 +179,7 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(292, 155);
 			this.panel3.TabIndex = 2;
+			this.panel3.Click += new System.EventHandler(this.panel3_Click);
 			// 
 			// labelPontosGanhos
 			// 
@@ -180,6 +190,7 @@
 			this.labelPontosGanhos.Size = new System.Drawing.Size(68, 73);
 			this.labelPontosGanhos.TabIndex = 3;
 			this.labelPontosGanhos.Text = "0";
+			this.labelPontosGanhos.Click += new System.EventHandler(this.panel3_Click);
 			// 
 			// label3
 			// 
@@ -190,6 +201,7 @@
 			this.label3.Size = new System.Drawing.Size(177, 24);
 			this.label3.TabIndex = 2;
 			this.label3.Text = "PONTOS GANHOS";
+			this.label3.Click += new System.EventHandler(this.panel3_Click);
 			// 
 			// ExperimentoView
 			// 
@@ -203,6 +215,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ExperimentoView";
 			this.Load += new System.EventHandler(this.ExperimentoView_Load);
+			this.Click += new System.EventHandler(this.ExperimentoView_Click);
 			this.Borda3.ResumeLayout(false);
 			this.Quadrado3.ResumeLayout(false);
 			this.Borda2.ResumeLayout(false);

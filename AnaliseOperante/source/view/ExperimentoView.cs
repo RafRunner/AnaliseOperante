@@ -1,4 +1,6 @@
 ﻿using AnaliseOperante.source.dominio;
+using AnaliseOperante.source.relatorios;
+using AnaliseOperante.source.services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -163,6 +165,11 @@ namespace AnaliseOperante.source.view {
 				experimentoRealizado.RegistrarEvento(new Evento($"Não existem condições nesse experimento para serem apresentadas", "Intervalo"));
 			}
 
+			experimentoRealizado.RegistrarEvento(new Evento($"Fim do experimento!", "Finalização"));
+
+			ExperimentoRealizadoService.Salvar(experimentoRealizado);
+			new GeradorDeRelatorios(experimentoRealizado).GerarRelatorio();
+
 			Close();
 		}
 
@@ -226,6 +233,47 @@ namespace AnaliseOperante.source.view {
 			else {
 				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3", "LinhaDeBase"));
 			}
+		}
+
+		private string GetTipoFaseAtual() {
+			if (faseAtual is Condicao) {
+				return "Condição";
+			}
+			else {
+				return "LinhaDeBase";
+			}
+		}
+
+		private void RegistrarToqueElementoNaoInterativo(string nomeElemento) {
+			experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou ${nomeElemento}", GetTipoFaseAtual()));
+		}
+
+		private void ExperimentoView_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("no fundo");
+		}
+
+		private void panel1_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("no placar de pontos perdidos");
+		}
+
+		private void panel2_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("no placar de pontos totais");
+		}
+
+		private void panel3_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("no placar de pontos ganhos");
+		}
+
+		private void Borda3_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("na borda do quadrado 3");
+		}
+
+		private void Borda2_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("na borda do quadrado 2");
+		}
+
+		private void Borda1_Click(object sender, EventArgs e) {
+			RegistrarToqueElementoNaoInterativo("na borda do quadrado 1");
 		}
 
 	}

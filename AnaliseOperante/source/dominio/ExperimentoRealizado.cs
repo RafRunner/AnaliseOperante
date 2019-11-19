@@ -69,5 +69,9 @@ namespace AnaliseOperante.source.dominio {
 			return eventos;
 		}
 
+		public string GetNomeArquivo() {
+			return $"Relatório ${NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada} - {DataHoraInicio}";
+		}
+
 	}
 }

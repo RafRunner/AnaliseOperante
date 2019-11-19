@@ -69,6 +69,7 @@
     <Compile Include="source\dominio\FaseDoExperimento.cs" />
     <Compile Include="source\dominio\FeedBack.cs" />
     <Compile Include="source\dominio\LinhaDeBase.cs" />
+    <Compile Include="source\relatorios\GeradorDeRelatorios.cs" />
     <Compile Include="source\services\AbstractService.cs" />
     <Compile Include="source\services\Ambiente.cs" />
     <Compile Include="source\services\AudioService.cs" />
