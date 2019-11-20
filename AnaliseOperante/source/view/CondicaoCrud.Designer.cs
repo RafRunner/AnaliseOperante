@@ -66,6 +66,7 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label9 = new System.Windows.Forms.Label();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
+			this.btnCopiarCores = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericIntervalo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontosPassivos)).BeginInit();
@@ -77,6 +78,7 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.btnCopiarCores);
 			this.panel1.Controls.Add(this.numericIntervalo);
 			this.panel1.Controls.Add(this.label12);
 			this.panel1.Controls.Add(this.numericPontosPassivos);
@@ -527,6 +529,17 @@
 			this.label9.TabIndex = 21;
 			this.label9.Text = "Feedbacks";
 			// 
+			// btnCopiarCores
+			// 
+			this.btnCopiarCores.Location = new System.Drawing.Point(11, 482);
+			this.btnCopiarCores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnCopiarCores.Name = "btnCopiarCores";
+			this.btnCopiarCores.Size = new System.Drawing.Size(105, 32);
+			this.btnCopiarCores.TabIndex = 24;
+			this.btnCopiarCores.Text = "Copiar Cores";
+			this.btnCopiarCores.UseVisualStyleBackColor = true;
+			this.btnCopiarCores.Click += new System.EventHandler(this.btnCopiarCores_Click);
+			// 
 			// CondicaoCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -597,5 +610,6 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.NumericUpDown numericPontosPassivos;
 		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Button btnCopiarCores;
 	}
 }

@@ -30,6 +30,10 @@ namespace AnaliseOperante.source.relatorios {
 		}
 
 		public void GerarRelatorio() {
+			if (experimentoRealizado.GetListaEventos().Count == 0) {
+				throw new Exception("Não se pode geara relatório de ume experimento sem eventos!");
+			}
+
 			CreateDirectoryIfNotExists();
 			StringBuilder relatorio = GeraRodape(GeraEventos(GeraCabecalho(new StringBuilder())));
 

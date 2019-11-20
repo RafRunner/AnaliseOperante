@@ -25,6 +25,20 @@ namespace AnaliseOperante.source.services {
 			}
 		}
 
+		public static List<Experimento> GetAllExperimentosByCondicao(Condicao condicao) {
+			if (condicao == null) {
+				return null;
+			}
+
+			using (IDbConnection cnn = new SQLiteConnection(GetConnectionString())) {
+				List<ExperimentoParaCondicao> experimentoParaCondicoes = cnn.Query<ExperimentoParaCondicao>("SELECT * FROM ExperimentoParaCondicao WHERE IdCondicao = @Id", condicao).ToList();
+
+				return experimentoParaCondicoes.Select(it => {
+					return ExperimentoService.GetById(it.IdExperimento);
+				}).ToList();
+			}
+		}
+
 		public static void CreateByExperimento(Experimento experimento) {
 			DeleteAllByExperimento(experimento);
 			List<Condicao> condicoes = experimento.Condicoes;

@@ -159,5 +159,16 @@ namespace AnaliseOperante.source.view {
 			MessageBox.Show("Condição salvo com sucesso!", "Sucesso");
 			Close();
 		}
+
+		private void btnCopiarCores_Click(object sender, EventArgs e) {
+			new CopiadorDeCoresView(condicao).ShowDialog();
+
+			panelCorFundo.BackColor = condicao.ColorFundo;
+			panelCorBorda.BackColor = condicao.ColorBorda;
+			panelCorQuadrado1.BackColor = condicao.ColorQuadrado1;
+			panelCorQuadrado2.BackColor = condicao.ColorQuadrado2;
+			panelCorQuadrado3.BackColor = condicao.ColorQuadrado3;
+		}
+
 	}
 }

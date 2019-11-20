@@ -151,7 +151,7 @@ namespace AnaliseOperante.source.view {
 
 			experimentoRealizado.NomeParticipante = textNomeParticipante.Text;
 			experimentoRealizado.IdadeParticipante = Convert.ToInt32(numericIdadeParticipante.Value);
-			experimentoRealizado.Grupo = textNomeParticipante.Text;
+			experimentoRealizado.Grupo = textGrupoParticipante.Text;
 			experimentoRealizado.CabineUtilizada = textCabineUtilizada.Text;
 
 			TelaMensagem telaMensagem = new TelaMensagem("Toque nessa mensagem para iniciar o experimento", false);
@@ -166,6 +166,14 @@ namespace AnaliseOperante.source.view {
 
 			telaMensagem.AlterarPropriedades("Experimento finalizado! Por favor, chamar o(a) experimentador(a).", false);
 			telaMensagem.Show();
+		}
+
+		private void btnGerarRelatorios_Click(object sender, EventArgs e) {
+			new GeradorRelatoriosView().ShowDialog();
+		}
+
+		private void button1_Click(object sender, EventArgs e) {
+			MessageBox.Show("Colocar as informações aqui!", "Informações");
 		}
 	}
 }

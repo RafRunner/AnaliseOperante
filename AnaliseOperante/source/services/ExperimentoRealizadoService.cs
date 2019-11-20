@@ -12,6 +12,7 @@ namespace AnaliseOperante.source.services {
 
 		public static ExperimentoRealizado GetById(long id) {
 			ExperimentoRealizado experimento = AbstractService.GetById<ExperimentoRealizado>(id, TABELA_ExperimentoRealizado);
+			experimento.SetListaEventos(EventoService.GetAllByExperimentoRealizado(experimento));
 			return experimento;
 		}
 
@@ -21,13 +22,14 @@ namespace AnaliseOperante.source.services {
 
 		public static void Salvar(ExperimentoRealizado experimento) {
 			AbstractService.Salvar<ExperimentoRealizado>(experimento, TABELA_ExperimentoRealizado,
-				$"INSERT INTO {TABELA_ExperimentoRealizado} (NomeParticipante, IdadeParticipante, Grupo, CabineUtilizada, TempoDuração, DataHoraInicio, IdExperimento) VALUES (@NomeParticipante, @IdadeParticipante, @Grupo, @CabineUtilizada, @TempoDuração, @DataHoraInicio, @IdExperimento)",
-				$"UPDATE {TABELA_ExperimentoRealizado} SET NomeParticipante = @NomeParticipante, IdadeParticipante = @IdadeParticipante, Grupo = @Grupo, CabineUtilizada = @CabineUtilizada, TempoDuração = @TempoDuração, DataHoraInicio = @DataHoraInicio, IdExperimento = @IdExperimento");
+				$"INSERT INTO {TABELA_ExperimentoRealizado} (NomeParticipante, IdadeParticipante, Grupo, CabineUtilizada, DataHoraInicio, IdExperimento) VALUES (@NomeParticipante, @IdadeParticipante, @Grupo, @CabineUtilizada, @DataHoraInicio, @IdExperimento)",
+				$"");
+
+			EventoService.SalvarByExperimentoRealizado(experimento);
 		}
 
 		public static void Deletar(ExperimentoRealizado experimento) {
-			experimento.Experimento = null;
-			Salvar(experimento);
+			experimento.GetListaEventos().ForEach(it => EventoService.Deletar(it));
 			AbstractService.Deletar(experimento, TABELA_ExperimentoRealizado);
 		}
 	}

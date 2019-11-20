@@ -1,6 +1,7 @@
 ﻿using AnaliseOperante.source.services;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace AnaliseOperante.source.dominio {
 
 		private static readonly string FORMATO_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
-		public long IdExperimento { private get; set; }
+		public long IdExperimento { get; set; }
 		private Experimento experimento;
 		public Experimento Experimento {
 			get {
@@ -43,15 +44,13 @@ namespace AnaliseOperante.source.dominio {
 
 		public string Grupo { get; set; }
 		public string CabineUtilizada { get; set; }
-		//Tempo em Segundos (não é predeterminado, é o corrido)
-		public long TempoDuracao { get; set; }
 
-		private DateTime dateTimeInicio;
 		public DateTime DateTimeInicio {
-			get => dateTimeInicio;
+			get {
+				return Convert.ToDateTime(DataHoraInicio, new CultureInfo("pt-BR"));
+			}
 			set {
-				dateTimeInicio = value;
-				DataHoraInicio = dateTimeInicio.ToString(FORMATO_DATE_TIME);
+				DataHoraInicio = value.ToString(FORMATO_DATE_TIME);
 			}
 		}
 
@@ -61,7 +60,6 @@ namespace AnaliseOperante.source.dominio {
 
 		public void RegistrarEvento(Evento evento) {
 			eventos.Add(evento);
-			evento.IdExperimento = experimento.Id;
 			evento.Horario = Convert.ToInt64((DateTime.Now - DateTimeInicio).TotalSeconds);
 		}
 
@@ -69,8 +67,16 @@ namespace AnaliseOperante.source.dominio {
 			return eventos;
 		}
 
+		public void SetListaEventos(List<Evento> eventos) {
+			this.eventos = eventos;
+		}
+
 		public string GetNomeArquivo() {
-			return $"Relatório ${NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada} - {DataHoraInicio}";
+			return $"{DataHoraInicio} - Relatório de {NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada}";
+		}
+
+		public string Nome {
+			get => $"{DataHoraInicio} - {NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada} - ";
 		}
 
 	}

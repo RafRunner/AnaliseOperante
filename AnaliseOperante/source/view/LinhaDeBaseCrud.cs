@@ -92,5 +92,16 @@ namespace AnaliseOperante.source.view {
 			MessageBox.Show("Linha de Base salva com sucesso!", "Sucesso");
 			Close();
 		}
+
+		private void btnCopiarCores_Click(object sender, EventArgs e) {
+			new CopiadorDeCoresView(linhaDeBase).ShowDialog();
+
+			panelCorFundo.BackColor = linhaDeBase.ColorFundo;
+			panelCorBorda.BackColor = linhaDeBase.ColorBorda;
+			panelCorQuadrado1.BackColor = linhaDeBase.ColorQuadrado1;
+			panelCorQuadrado2.BackColor = linhaDeBase.ColorQuadrado2;
+			panelCorQuadrado3.BackColor = linhaDeBase.ColorQuadrado3;
+		}
+
 	}
 }

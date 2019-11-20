@@ -12,9 +12,21 @@ namespace AnaliseOperante.source.services {
 
 		public static Experimento GetById(long id) {
 			Experimento experimento = AbstractService.GetById<Experimento>(id, TABELA_Experimento);
+			if (experimento == null) {
+				return null;
+			}
+
 			experimento.Condicoes = ExperimentoParaCondicaoService.GetAllCondicoesByExperimento(experimento);
 
 			return experimento;
+		}
+
+		public static List<Experimento> GetByLinhaDeBase(LinhaDeBase linhaDeBase) {
+			return AbstractService.GetByObj<Experimento>($"SELECT * FROM {TABELA_Experimento} WHERE IdLinhaDeBase = @Id", linhaDeBase);
+		}
+
+		public static List<Experimento> GetByCondicao(Condicao condicao) {
+			return ExperimentoParaCondicaoService.GetAllExperimentosByCondicao(condicao);
 		}
 
 		public static List<Experimento> GetAll() {

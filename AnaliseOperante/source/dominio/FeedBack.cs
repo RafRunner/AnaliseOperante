@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace AnaliseOperante.source.dominio {
 	public class FeedBack : EntidadeDeBanco {
 
+		public static readonly Color CorNeutra = Color.FromArgb(-986896);
 		public int Pontos { get; set; }
 
 		private SoundPlayer soundPlayer;

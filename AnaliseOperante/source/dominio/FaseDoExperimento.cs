@@ -14,7 +14,7 @@ namespace AnaliseOperante.source.dominio {
 		public string Nome {
 			get => nome;
 			set {
-				nome = NullEmptyBlankCheck(value, "Nome", "Experimento");
+				nome = NullEmptyBlankCheck(value, "Nome", "Linha de Base Ou Condição");
 			}
 		}
 

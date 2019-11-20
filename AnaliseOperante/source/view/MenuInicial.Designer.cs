@@ -47,7 +47,7 @@
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.btnIniciarExperimento = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.numericIdadeParticipante = new System.Windows.Forms.NumericUpDown();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textCabineUtilizada = new System.Windows.Forms.TextBox();
@@ -59,11 +59,16 @@
 			this.textNomeParticipante = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.btnIniciarExperimento = new System.Windows.Forms.Button();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.label15 = new System.Windows.Forms.Label();
+			this.btnGerarRelatorios = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericIdadeParticipante)).BeginInit();
+			this.panel5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel2
@@ -312,8 +317,8 @@
 			// panel4
 			// 
 			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel4.Controls.Add(this.btnIniciarExperimento);
 			this.panel4.Controls.Add(this.numericIdadeParticipante);
+			this.panel4.Controls.Add(this.btnIniciarExperimento);
 			this.panel4.Controls.Add(this.label9);
 			this.panel4.Controls.Add(this.textCabineUtilizada);
 			this.panel4.Controls.Add(this.label8);
@@ -326,19 +331,19 @@
 			this.panel4.Controls.Add(this.label4);
 			this.panel4.Location = new System.Drawing.Point(12, 404);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(957, 137);
+			this.panel4.Size = new System.Drawing.Size(636, 203);
 			this.panel4.TabIndex = 8;
 			// 
-			// btnIniciarExperimento
+			// button1
 			// 
-			this.btnIniciarExperimento.Location = new System.Drawing.Point(647, 80);
-			this.btnIniciarExperimento.Margin = new System.Windows.Forms.Padding(2);
-			this.btnIniciarExperimento.Name = "btnIniciarExperimento";
-			this.btnIniciarExperimento.Size = new System.Drawing.Size(303, 43);
-			this.btnIniciarExperimento.TabIndex = 5;
-			this.btnIniciarExperimento.Text = "Inicar";
-			this.btnIniciarExperimento.UseVisualStyleBackColor = true;
-			this.btnIniciarExperimento.Click += new System.EventHandler(this.btnIniciarExperimento_Click);
+			this.button1.Location = new System.Drawing.Point(5, 147);
+			this.button1.Margin = new System.Windows.Forms.Padding(2);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(303, 43);
+			this.button1.TabIndex = 11;
+			this.button1.Text = "Mais sobre o Software";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// numericIdadeParticipante
 			// 
@@ -364,16 +369,16 @@
 			// 
 			// textCabineUtilizada
 			// 
-			this.textCabineUtilizada.Location = new System.Drawing.Point(326, 98);
+			this.textCabineUtilizada.Location = new System.Drawing.Point(326, 99);
 			this.textCabineUtilizada.Name = "textCabineUtilizada";
-			this.textCabineUtilizada.Size = new System.Drawing.Size(302, 25);
+			this.textCabineUtilizada.Size = new System.Drawing.Size(297, 25);
 			this.textCabineUtilizada.TabIndex = 8;
 			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(323, 77);
+			this.label8.Location = new System.Drawing.Point(323, 78);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(102, 17);
 			this.label8.TabIndex = 7;
@@ -381,16 +386,16 @@
 			// 
 			// textGrupoParticipante
 			// 
-			this.textGrupoParticipante.Location = new System.Drawing.Point(326, 49);
+			this.textGrupoParticipante.Location = new System.Drawing.Point(326, 50);
 			this.textGrupoParticipante.Name = "textGrupoParticipante";
-			this.textGrupoParticipante.Size = new System.Drawing.Size(302, 25);
+			this.textGrupoParticipante.Size = new System.Drawing.Size(297, 25);
 			this.textGrupoParticipante.TabIndex = 6;
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(323, 29);
+			this.label7.Location = new System.Drawing.Point(323, 30);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(117, 17);
 			this.label7.TabIndex = 5;
@@ -400,7 +405,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(644, 30);
+			this.label6.Location = new System.Drawing.Point(10, 136);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(156, 17);
 			this.label6.TabIndex = 4;
@@ -409,7 +414,7 @@
 			// textExperimentoSelecionado
 			// 
 			this.textExperimentoSelecionado.Enabled = false;
-			this.textExperimentoSelecionado.Location = new System.Drawing.Point(647, 50);
+			this.textExperimentoSelecionado.Location = new System.Drawing.Point(7, 156);
 			this.textExperimentoSelecionado.Name = "textExperimentoSelecionado";
 			this.textExperimentoSelecionado.Size = new System.Drawing.Size(303, 25);
 			this.textExperimentoSelecionado.TabIndex = 3;
@@ -418,7 +423,7 @@
 			// 
 			this.textNomeParticipante.Location = new System.Drawing.Point(12, 50);
 			this.textNomeParticipante.Name = "textNomeParticipante";
-			this.textNomeParticipante.Size = new System.Drawing.Size(302, 25);
+			this.textNomeParticipante.Size = new System.Drawing.Size(298, 25);
 			this.textNomeParticipante.TabIndex = 2;
 			// 
 			// label5
@@ -441,11 +446,55 @@
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Dados da Sessão";
 			// 
+			// btnIniciarExperimento
+			// 
+			this.btnIniciarExperimento.Location = new System.Drawing.Point(326, 147);
+			this.btnIniciarExperimento.Margin = new System.Windows.Forms.Padding(2);
+			this.btnIniciarExperimento.Name = "btnIniciarExperimento";
+			this.btnIniciarExperimento.Size = new System.Drawing.Size(299, 43);
+			this.btnIniciarExperimento.TabIndex = 5;
+			this.btnIniciarExperimento.Text = "Iniciar";
+			this.btnIniciarExperimento.UseVisualStyleBackColor = true;
+			this.btnIniciarExperimento.Click += new System.EventHandler(this.btnIniciarExperimento_Click);
+			// 
+			// panel5
+			// 
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel5.Controls.Add(this.button1);
+			this.panel5.Controls.Add(this.btnGerarRelatorios);
+			this.panel5.Controls.Add(this.label15);
+			this.panel5.Location = new System.Drawing.Point(654, 404);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(315, 203);
+			this.panel5.TabIndex = 12;
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label15.Location = new System.Drawing.Point(5, 4);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(135, 21);
+			this.label15.TabIndex = 0;
+			this.label15.Text = "Relatórios e Info";
+			// 
+			// btnGerarRelatorios
+			// 
+			this.btnGerarRelatorios.Location = new System.Drawing.Point(9, 90);
+			this.btnGerarRelatorios.Margin = new System.Windows.Forms.Padding(2);
+			this.btnGerarRelatorios.Name = "btnGerarRelatorios";
+			this.btnGerarRelatorios.Size = new System.Drawing.Size(299, 43);
+			this.btnGerarRelatorios.TabIndex = 6;
+			this.btnGerarRelatorios.Text = "Gerar Relatórios Passados";
+			this.btnGerarRelatorios.UseVisualStyleBackColor = true;
+			this.btnGerarRelatorios.Click += new System.EventHandler(this.btnGerarRelatorios_Click);
+			// 
 			// MenuInicial
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(979, 549);
+			this.ClientSize = new System.Drawing.Size(979, 615);
+			this.Controls.Add(this.panel5);
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panel2);
@@ -466,6 +515,8 @@
 			this.panel4.ResumeLayout(false);
 			this.panel4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericIdadeParticipante)).EndInit();
+			this.panel5.ResumeLayout(false);
+			this.panel5.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -507,5 +558,9 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox textExperimentoSelecionado;
 		private System.Windows.Forms.Button btnEditarExperimento;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.Button btnGerarRelatorios;
+		public System.Windows.Forms.Label label15;
 	}
 }

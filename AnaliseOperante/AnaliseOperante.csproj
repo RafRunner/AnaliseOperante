@@ -86,6 +86,12 @@
     <Compile Include="source\view\CondicaoCrud.Designer.cs">
       <DependentUpon>CondicaoCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="source\view\CopiadorDeCoresView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\CopiadorDeCoresView.Designer.cs">
+      <DependentUpon>CopiadorDeCoresView.cs</DependentUpon>
+    </Compile>
     <Compile Include="source\view\ExperimentoCrud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="source\view\FeedbackCrud.Designer.cs">
       <DependentUpon>FeedbackCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="source\view\GeradorRelatoriosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\GeradorRelatoriosView.Designer.cs">
+      <DependentUpon>GeradorRelatoriosView.cs</DependentUpon>
     </Compile>
     <Compile Include="source\view\LinhaDeBaseCrud.cs">
       <SubType>Form</SubType>
@@ -139,6 +151,9 @@
     <EmbeddedResource Include="source\view\CondicaoCrud.resx">
       <DependentUpon>CondicaoCrud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="source\view\CopiadorDeCoresView.resx">
+      <DependentUpon>CopiadorDeCoresView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="source\view\ExperimentoCrud.resx">
       <DependentUpon>ExperimentoCrud.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="source\view\FeedbackCrud.resx">
       <DependentUpon>FeedbackCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\view\GeradorRelatoriosView.resx">
+      <DependentUpon>GeradorRelatoriosView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="source\view\LinhaDeBaseCrud.resx">
       <DependentUpon>LinhaDeBaseCrud.cs</DependentUpon>

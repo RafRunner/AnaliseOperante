@@ -74,7 +74,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			experimentoRealizado.RegistrarEvento(new Evento($"Participante recebeu {condicao.PontosGanhoPassivo} pontos passivamente!", "Condição"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Participante recebeu {condicao.PontosGanhoPassivo} pontos passivamente!" + GetResumoPontosAtual(), "Condição"));
 			condicao.AplicarGanhoPassivo();
 			AtualizarLabelsPontos(faseAtual);
 			CheckFimCondicao(condicao);
@@ -180,6 +180,17 @@ namespace AnaliseOperante.source.view {
 			}
 		}
 
+		async private void Piscar(Panel panel, Color color) {
+			if (color == FeedBack.CorNeutra) {
+				return;
+			}
+
+			Color corAnterior = panel.BackColor;
+			panel.BackColor = color;
+			await Task.Delay(300);
+			panel.BackColor = corAnterior;
+		}
+
 		private void ComportamentoClickQuadrado(FaseDoExperimento fase) {
 			AtualizarLabelsPontos(fase);
 			if (fase is Condicao) {
@@ -193,13 +204,19 @@ namespace AnaliseOperante.source.view {
 			}
 		}
 
+		private string GetResumoPontosAtual() {
+			return $" Pontos Totais: {faseAtual.PontosTotais}, Pontos Ganhos: {faseAtual.PontosGanhos}, Pontos Perdidos: {faseAtual.PontosPerdidos}";
+		}
+
 		private void Quadrado1_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado1();
 			ComportamentoClickQuadrado(faseAtual);
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
-				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 1, recebendo {condicao.FeedBackQuadrado1.Pontos} pontos", "Condição"));
+				Piscar(Quadrado1, condicao.FeedBackQuadrado1.ColorBlink);
+
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 1, recebendo {condicao.FeedBackQuadrado1.Pontos} pontos." + GetResumoPontosAtual(), "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado1.Pontos, condicao);
 			}
 			else {
@@ -213,7 +230,9 @@ namespace AnaliseOperante.source.view {
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
-				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 2, recebendo {condicao.FeedBackQuadrado2.Pontos} pontos", "Condição"));
+				Piscar(Quadrado2, condicao.FeedBackQuadrado2.ColorBlink);
+
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 2, recebendo {condicao.FeedBackQuadrado2.Pontos} pontos." + GetResumoPontosAtual(), "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado2.Pontos, condicao);
 			}
 			else {
@@ -227,7 +246,9 @@ namespace AnaliseOperante.source.view {
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
-				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3, recebendo {condicao.FeedBackQuadrado3.Pontos} pontos", "Condição"));
+				Piscar(Quadrado3, condicao.FeedBackQuadrado3.ColorBlink);
+
+				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3, recebendo {condicao.FeedBackQuadrado3.Pontos} pontos." + GetResumoPontosAtual(), "Condição"));
 				ComportamentoPontosPassivos(condicao.FeedBackQuadrado3.Pontos, condicao);
 			}
 			else {
