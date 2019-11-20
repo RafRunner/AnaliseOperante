@@ -24,15 +24,17 @@ namespace AnaliseOperante.source.services {
 
 		public static void Salvar(Evento evento) {
 			AbstractService.Salvar<Evento>(evento, TABELA_EVENTOS,
-				$"INSERT INTO {TABELA_EVENTOS} (Texto, Experimento, Origem, Horario) VALUES (@Texto, @Experimento, @Origem, @Horario)",
+				$"INSERT INTO {TABELA_EVENTOS} (Texto, IdExperimento, Origem, Horario) VALUES (@Texto, @IdExperimento, @Origem, @Horario)",
 				"");
 		}
 
 		public static void SalvarByExperimentoRealizado(ExperimentoRealizado experimentoRealizado) {
-			experimentoRealizado.GetListaEventos().ForEach(it => {
-				it.IdExperimento = experimentoRealizado.Id;
-				Salvar(it);
-			});
+			List<Evento> eventos = experimentoRealizado.GetListaEventos();
+
+			foreach (Evento evento in eventos) {
+				evento.IdExperimento = experimentoRealizado.Id;
+				Salvar(evento);
+			}
 		}
 
 		public static void Deletar(Evento evento) {

@@ -156,7 +156,7 @@ namespace AnaliseOperante.source.view {
 			condicao.CorQuadrado3 = panelCorQuadrado3.BackColor.ToArgb();
 
 			CondicaoService.Salvar(condicao);
-			MessageBox.Show("Condição salvo com sucesso!", "Sucesso");
+			MessageBox.Show("Condição salva com sucesso!", "Sucesso");
 			Close();
 		}
 

@@ -27,7 +27,7 @@ namespace AnaliseOperante.source.services {
 		public static void Deletar(LinhaDeBase linhaDeBase) {
 			List<Experimento> experimentos = ExperimentoService.GetByLinhaDeBase(linhaDeBase);
 			if (experimentos.Count > 0) {
-				throw new Exception("A linha de base não pode ser deletada! Está sendo usada nos seguintes esperimentos: " + experimentos.Select(it => it.Nome).ToString());
+				throw new Exception("A linha de base não pode ser deletada! Está sendo usada nos seguintes esperimentos: " + string.Join(", ", experimentos.Select(it => it.Nome)));
 			}
 
 			AbstractService.Deletar(linhaDeBase, TABELA_LinhaDeBase);

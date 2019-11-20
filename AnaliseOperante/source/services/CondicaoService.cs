@@ -31,7 +31,7 @@ namespace AnaliseOperante.source.services {
 		public static void Deletar(Condicao condicao) {
 			List<Experimento> experimentos = ExperimentoService.GetByCondicao(condicao);
 			if (experimentos.Count > 0) {
-				throw new Exception("A condição não pode ser deletada! Está sendo usada nos seguintes esperimentos: " + experimentos.Select(it => it.Nome).ToString());
+				throw new Exception("A condição não pode ser deletada! Está sendo usada nos seguintes esperimentos: " + string.Join(", ", experimentos.Select(it => it.Nome)));
 			}
 
 			AbstractService.Deletar(condicao, TABELA_Condicao);

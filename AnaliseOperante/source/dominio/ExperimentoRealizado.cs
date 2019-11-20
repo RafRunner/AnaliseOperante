@@ -10,6 +10,7 @@ namespace AnaliseOperante.source.dominio {
 	public class ExperimentoRealizado : EntidadeDeBanco {
 
 		private static readonly string FORMATO_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
+		private static readonly string FORMATO_DATE_TIME_ARQUIVO = "yyyy-MM-dd HH-mm-ss";
 
 		public long IdExperimento { get; set; }
 		private Experimento experimento;
@@ -59,8 +60,8 @@ namespace AnaliseOperante.source.dominio {
 		private List<Evento> eventos = new List<Evento>();
 
 		public void RegistrarEvento(Evento evento) {
-			eventos.Add(evento);
 			evento.Horario = Convert.ToInt64((DateTime.Now - DateTimeInicio).TotalSeconds);
+			eventos.Add(evento);
 		}
 
 		public List<Evento> GetListaEventos() {
@@ -72,11 +73,11 @@ namespace AnaliseOperante.source.dominio {
 		}
 
 		public string GetNomeArquivo() {
-			return $"{DataHoraInicio} - Relatório de {NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada}";
+			return $"{DateTimeInicio.ToString(FORMATO_DATE_TIME_ARQUIVO)} - {NomeParticipante} - grupo '{Grupo}' - cabine '{CabineUtilizada}'";
 		}
 
 		public string Nome {
-			get => $"{DataHoraInicio} - {NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada} - ";
+			get => $"{DataHoraInicio} - {NomeParticipante} - grupo {Grupo} - cabine {CabineUtilizada}";
 		}
 
 	}

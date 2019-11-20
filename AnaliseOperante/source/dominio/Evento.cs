@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace AnaliseOperante.source.dominio {
 	public class Evento : EntidadeDeBanco {
 
+		//Construtor vazio para o Dapper
+		public Evento() { }
+
 		public Evento(string texto, string origem) {
 			Texto = texto;
 			Origem = origem;
@@ -17,7 +20,7 @@ namespace AnaliseOperante.source.dominio {
 
 		public string Origem { get; set; }
 
-		public long IdExperimento { private get; set; }
+		public long IdExperimento { get; set; }
 		private ExperimentoRealizado experimento;
 		public ExperimentoRealizado ExperimentoRealizado {
 			get {

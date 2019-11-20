@@ -39,8 +39,7 @@ namespace AnaliseOperante.source.view {
 
 			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
 			new GeradorDeRelatorios(experimento).GerarRelatorio();
-			MessageBox.Show("Relatório gerado!", "Sucesso");
-			Close();
+			MessageBox.Show("Relatório gerado! Nome do arquivo: " + experimento.GetNomeArquivo(), "Sucesso");
 		}
 
 		private void btnDeletarExperimento_Click(object sender, EventArgs e) {
@@ -51,6 +50,7 @@ namespace AnaliseOperante.source.view {
 
 			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
 			ExperimentoRealizadoService.Deletar(experimento);
+			listViewExperimento.Items.Remove(listViewExperimento.SelectedItems[0]);
 			MessageBox.Show("Arquivo de relatório deletado!", "Sucesso");
 		}
 

@@ -25,11 +25,11 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeradorRelatoriosView));
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.btnDeletarExperimento = new System.Windows.Forms.Button();
 			this.btnSelecionarExperimento = new System.Windows.Forms.Button();
 			this.listViewExperimento = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label3 = new System.Windows.Forms.Label();
-			this.btnDeletarExperimento = new System.Windows.Forms.Button();
 			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -44,12 +44,23 @@
 			this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(2, 4, 2, 2);
-			this.panel3.Size = new System.Drawing.Size(315, 384);
+			this.panel3.Size = new System.Drawing.Size(488, 384);
 			this.panel3.TabIndex = 7;
+			// 
+			// btnDeletarExperimento
+			// 
+			this.btnDeletarExperimento.Location = new System.Drawing.Point(5, 348);
+			this.btnDeletarExperimento.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDeletarExperimento.Name = "btnDeletarExperimento";
+			this.btnDeletarExperimento.Size = new System.Drawing.Size(71, 27);
+			this.btnDeletarExperimento.TabIndex = 5;
+			this.btnDeletarExperimento.Text = "Deletar";
+			this.btnDeletarExperimento.UseVisualStyleBackColor = true;
+			this.btnDeletarExperimento.Click += new System.EventHandler(this.btnDeletarExperimento_Click);
 			// 
 			// btnSelecionarExperimento
 			// 
-			this.btnSelecionarExperimento.Location = new System.Drawing.Point(190, 348);
+			this.btnSelecionarExperimento.Location = new System.Drawing.Point(364, 346);
 			this.btnSelecionarExperimento.Margin = new System.Windows.Forms.Padding(2);
 			this.btnSelecionarExperimento.Name = "btnSelecionarExperimento";
 			this.btnSelecionarExperimento.Size = new System.Drawing.Size(118, 27);
@@ -67,7 +78,7 @@
 			this.listViewExperimento.Margin = new System.Windows.Forms.Padding(2);
 			this.listViewExperimento.MultiSelect = false;
 			this.listViewExperimento.Name = "listViewExperimento";
-			this.listViewExperimento.Size = new System.Drawing.Size(305, 316);
+			this.listViewExperimento.Size = new System.Drawing.Size(477, 316);
 			this.listViewExperimento.TabIndex = 1;
 			this.listViewExperimento.UseCompatibleStateImageBehavior = false;
 			this.listViewExperimento.View = System.Windows.Forms.View.Details;
@@ -75,7 +86,7 @@
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Nome";
-			this.columnHeader1.Width = 300;
+			this.columnHeader1.Width = 473;
 			// 
 			// label3
 			// 
@@ -87,22 +98,11 @@
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Experimentos Realizados";
 			// 
-			// btnDeletarExperimento
-			// 
-			this.btnDeletarExperimento.Location = new System.Drawing.Point(5, 348);
-			this.btnDeletarExperimento.Margin = new System.Windows.Forms.Padding(2);
-			this.btnDeletarExperimento.Name = "btnDeletarExperimento";
-			this.btnDeletarExperimento.Size = new System.Drawing.Size(71, 27);
-			this.btnDeletarExperimento.TabIndex = 5;
-			this.btnDeletarExperimento.Text = "Deletar";
-			this.btnDeletarExperimento.UseVisualStyleBackColor = true;
-			this.btnDeletarExperimento.Click += new System.EventHandler(this.btnDeletarExperimento_Click);
-			// 
 			// GeradorRelatoriosView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(334, 406);
+			this.ClientSize = new System.Drawing.Size(512, 406);
 			this.Controls.Add(this.panel3);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

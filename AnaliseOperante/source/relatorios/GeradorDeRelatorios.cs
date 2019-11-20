@@ -56,7 +56,7 @@ namespace AnaliseOperante.source.relatorios {
 		private string RegistraEvento(Evento evento) {
 			DateTime horaEvento = experimentoRealizado.DateTimeInicio.AddSeconds(evento.Horario);
 
-			return $"\t{horaEvento.ToString(FORMATO_DATE_TIME)} - {evento.Texto} - {evento.Origem}";
+			return $"\t{horaEvento.ToString(FORMATO_DATE_TIME)} - {evento.Origem} - {evento.Texto}";
 		}
 
 		private StringBuilder GeraEventos(StringBuilder relatorio) {
@@ -65,12 +65,12 @@ namespace AnaliseOperante.source.relatorios {
 			string ultimaOrigemEvento = experimentoRealizado.GetListaEventos().First().Origem;
 
 			foreach (Evento evento in experimentoRealizado.GetListaEventos()) {
-				relatorio.AppendLine(RegistraEvento(evento));
-
 				if (ultimaOrigemEvento != evento.Origem) {
 					relatorio.AppendLine();
 					ultimaOrigemEvento = evento.Origem;
 				}
+
+				relatorio.AppendLine(RegistraEvento(evento));
 			}
 
 			relatorio.AppendLine().AppendLine("////////////////////////////////////////////////////////////////////////////////////////////////////").AppendLine();

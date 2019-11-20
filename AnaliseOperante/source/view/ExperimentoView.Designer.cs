@@ -95,9 +95,9 @@
 			// 
 			// Quadrado1
 			// 
-			this.Quadrado1.Location = new System.Drawing.Point(12, 12);
+			this.Quadrado1.Location = new System.Drawing.Point(13, 13);
 			this.Quadrado1.Name = "Quadrado1";
-			this.Quadrado1.Size = new System.Drawing.Size(152, 152);
+			this.Quadrado1.Size = new System.Drawing.Size(151, 151);
 			this.Quadrado1.TabIndex = 0;
 			this.Quadrado1.Click += new System.EventHandler(this.Quadrado1_Click);
 			// 
@@ -141,7 +141,7 @@
 			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.labelPontosTotais);
 			this.panel2.Controls.Add(this.label2);
-			this.panel2.Location = new System.Drawing.Point(794, 13);
+			this.panel2.Location = new System.Drawing.Point(812, 13);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(292, 155);
 			this.panel2.TabIndex = 2;
