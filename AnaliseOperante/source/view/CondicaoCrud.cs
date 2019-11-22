@@ -51,6 +51,18 @@ namespace AnaliseOperante.source.view {
 				item.SubItems.Add(it.Id.ToString());
 				return item;
 			}).Cast<ListViewItem>().ToArray());
+
+			if (condicao != null) {
+				if (condicao.FeedBackQuadrado1 != null) {
+					textFeedback1.Text = FeedBackService.GetById(condicao.FeedBackQuadrado1.Id).Nome;
+				}
+				if (condicao.FeedBackQuadrado2 != null) {
+					textFeedback2.Text = FeedBackService.GetById(condicao.FeedBackQuadrado2.Id).Nome;
+				}
+				if (condicao.FeedBackQuadrado3 != null) {
+					textFeedback3.Text = FeedBackService.GetById(condicao.FeedBackQuadrado3.Id).Nome;
+				}
+			}
 		}
 
 		private void SelecionarCor(Panel painelCor) {

@@ -46,8 +46,8 @@ namespace AnaliseOperante.source.services {
 					long id = cnn.Query<long>(sqlInsert + "; SELECT CAST(last_insert_rowid() as int)", objeto).Single();
 					objeto.Id = id;
 				}
-				else {
-					cnn.Execute(sqlUpdate, objeto);
+				else if (!string.IsNullOrEmpty(sqlUpdate)) {
+					cnn.Execute(sqlUpdate + " WHERE Id = @Id", objeto);
 				}
 			}
 		}

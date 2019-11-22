@@ -14,6 +14,11 @@ namespace AnaliseOperante.source.services {
 			return AbstractService.GetById<FeedBack>(id, TABELA_Feedback);
 		}
 
+		public static FeedBack GetByObj(FeedBack feedBack) {
+			List<FeedBack> feedbacks = AbstractService.GetByObj<FeedBack>($"SELECT * FROM {TABELA_Feedback} WHERE NomeAudio = @NomeAudio AND CorBlink = @CorBlink AND Pontos = @Pontos", feedBack);
+			return feedbacks.Count == 0 ? null : feedbacks[0];
+		}
+
 		public static List<FeedBack> GetAll() {
 			return AbstractService.GetAll<FeedBack>(TABELA_Feedback);
 		}

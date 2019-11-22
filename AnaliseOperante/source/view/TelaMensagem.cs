@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnaliseOperante.source.view.utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,18 @@ namespace AnaliseOperante.source.view {
 
 		private TaskCompletionSource<bool> taskAtual;
 
+		private readonly int height = Screen.PrimaryScreen.Bounds.Height;
+		private readonly int width = Screen.PrimaryScreen.Bounds.Width;
+
 		public TelaMensagem(string mensagem, bool mostrarBotao) {
 			InitializeComponent();
+
+			double heightRatio = height / 1080.0;
+			double widthRatio = width / 1920.0;
+
+			ViewUtils.CorrigeTamanhoEPosicao(panel1, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(btnContinuar, heightRatio, widthRatio);
+			ViewUtils.CorrigeFonte(labelMensagem, heightRatio);
 
 			AlterarPropriedades(mensagem, mostrarBotao);
 		}

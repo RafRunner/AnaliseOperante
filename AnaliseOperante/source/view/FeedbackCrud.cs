@@ -64,6 +64,12 @@ namespace AnaliseOperante.source.view {
 			feedback.Pontos = Convert.ToInt32(numericPontos.Value);
 			feedback.CorBlink = panelCorBlink.BackColor.ToArgb();
 
+			FeedBack feedBackExistente = FeedBackService.GetByObj(feedback);
+			if (feedBackExistente != null) {
+				MessageBox.Show("Feedback já existente!", "Advertência");
+				return;
+			}
+
 			FeedBackService.Salvar(feedback);
 			MessageBox.Show("Feedback salvo com sucesso!", "Sucesso");
 			fileDialog.Dispose();
