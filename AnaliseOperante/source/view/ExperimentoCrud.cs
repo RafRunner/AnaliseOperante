@@ -1,4 +1,5 @@
 ﻿using AnaliseOperante.source.dominio;
+using AnaliseOperante.source.helpers;
 using AnaliseOperante.source.services;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,9 @@ namespace AnaliseOperante.source.view {
 				Text = "Criando novo Experimento";
 				return;
 			}
-
-			experimento = ExperimentoService.GetById(idExperimento);
+			else {
+				experimento = ExperimentoService.GetById(idExperimento);
+			}
 
 			Text = "Editando Experimento: " + experimento.Nome;
 			textNome.Text = experimento.Nome;
@@ -69,7 +71,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			experimento.LinhaDeBase = LinhaDeBaseService.GetById(Convert.ToInt64(listViewLinhaDeBase.SelectedItems[0].SubItems[1].Text));
+			experimento.LinhaDeBase = LinhaDeBaseService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewLinhaDeBase));
 			textLinhaDeBase.Text = experimento.LinhaDeBase.Nome;
 		}
 
@@ -89,7 +91,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			Condicao condicao = CondicaoService.GetById(Convert.ToInt64(listViewCondicao.SelectedItems[0].SubItems[1].Text));
+			Condicao condicao = CondicaoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewCondicao));
 			experimento.Condicoes.Add(condicao);
 			AdicionaCondicaoEscolhida(condicao);
 		}
@@ -100,7 +102,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			experimento.Condicoes.Remove(experimento.Condicoes.Find(it => it.Id == Convert.ToInt64(listViewCondicoesSelecionadas.SelectedItems[0].SubItems[1].Text)));
+			experimento.Condicoes.Remove(experimento.Condicoes.Find(it => it.Id == ViewHelper.GetIdSelecionadoInListView(listViewCondicoesSelecionadas)));
 			listViewCondicao.Items.Clear();
 			experimento.Condicoes.ForEach(it => AdicionaCondicaoEscolhida(it));
 		}

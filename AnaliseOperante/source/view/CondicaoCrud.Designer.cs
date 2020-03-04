@@ -25,6 +25,7 @@
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CondicaoCrud));
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnCopiarCores = new System.Windows.Forms.Button();
 			this.numericIntervalo = new System.Windows.Forms.NumericUpDown();
 			this.label12 = new System.Windows.Forms.Label();
 			this.numericPontosPassivos = new System.Windows.Forms.NumericUpDown();
@@ -66,7 +67,19 @@
 			this.ColunaNomeExperimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label9 = new System.Windows.Forms.Label();
 			this.colorDialog = new System.Windows.Forms.ColorDialog();
-			this.btnCopiarCores = new System.Windows.Forms.Button();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.textAudio1 = new System.Windows.Forms.TextBox();
+			this.btnSelecionarAudio1 = new System.Windows.Forms.Button();
+			this.label17 = new System.Windows.Forms.Label();
+			this.textAudio2 = new System.Windows.Forms.TextBox();
+			this.btnSelecionarAudio2 = new System.Windows.Forms.Button();
+			this.label18 = new System.Windows.Forms.Label();
+			this.textAudio3 = new System.Windows.Forms.TextBox();
+			this.btnSelecionarAudio3 = new System.Windows.Forms.Button();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericIntervalo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPontosPassivos)).BeginInit();
@@ -78,6 +91,18 @@
 			// panel1
 			// 
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label18);
+			this.panel1.Controls.Add(this.textAudio3);
+			this.panel1.Controls.Add(this.btnSelecionarAudio3);
+			this.panel1.Controls.Add(this.label17);
+			this.panel1.Controls.Add(this.textAudio2);
+			this.panel1.Controls.Add(this.btnSelecionarAudio2);
+			this.panel1.Controls.Add(this.label16);
+			this.panel1.Controls.Add(this.textAudio1);
+			this.panel1.Controls.Add(this.btnSelecionarAudio1);
+			this.panel1.Controls.Add(this.label15);
+			this.panel1.Controls.Add(this.label14);
+			this.panel1.Controls.Add(this.label13);
 			this.panel1.Controls.Add(this.btnCopiarCores);
 			this.panel1.Controls.Add(this.numericIntervalo);
 			this.panel1.Controls.Add(this.label12);
@@ -115,8 +140,19 @@
 			this.panel1.Location = new System.Drawing.Point(12, 14);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(496, 530);
+			this.panel1.Size = new System.Drawing.Size(496, 667);
 			this.panel1.TabIndex = 2;
+			// 
+			// btnCopiarCores
+			// 
+			this.btnCopiarCores.Location = new System.Drawing.Point(10, 628);
+			this.btnCopiarCores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnCopiarCores.Name = "btnCopiarCores";
+			this.btnCopiarCores.Size = new System.Drawing.Size(105, 32);
+			this.btnCopiarCores.TabIndex = 24;
+			this.btnCopiarCores.Text = "Copiar Cores";
+			this.btnCopiarCores.UseVisualStyleBackColor = true;
+			this.btnCopiarCores.Click += new System.EventHandler(this.btnCopiarCores_Click);
 			// 
 			// numericIntervalo
 			// 
@@ -192,7 +228,7 @@
 			// textFeedback3
 			// 
 			this.textFeedback3.Enabled = false;
-			this.textFeedback3.Location = new System.Drawing.Point(174, 438);
+			this.textFeedback3.Location = new System.Drawing.Point(173, 535);
 			this.textFeedback3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.textFeedback3.Name = "textFeedback3";
 			this.textFeedback3.Size = new System.Drawing.Size(232, 23);
@@ -201,7 +237,7 @@
 			// textFeedback2
 			// 
 			this.textFeedback2.Enabled = false;
-			this.textFeedback2.Location = new System.Drawing.Point(173, 374);
+			this.textFeedback2.Location = new System.Drawing.Point(173, 419);
 			this.textFeedback2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.textFeedback2.Name = "textFeedback2";
 			this.textFeedback2.Size = new System.Drawing.Size(233, 23);
@@ -218,23 +254,23 @@
 			// 
 			// btnFeedback3
 			// 
-			this.btnFeedback3.Location = new System.Drawing.Point(412, 436);
+			this.btnFeedback3.Location = new System.Drawing.Point(411, 533);
 			this.btnFeedback3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnFeedback3.Name = "btnFeedback3";
 			this.btnFeedback3.Size = new System.Drawing.Size(77, 29);
 			this.btnFeedback3.TabIndex = 25;
-			this.btnFeedback3.Text = "Selecionar Feedback";
+			this.btnFeedback3.Text = "Selecionar";
 			this.btnFeedback3.UseVisualStyleBackColor = true;
 			this.btnFeedback3.Click += new System.EventHandler(this.btnFeedback3_Click);
 			// 
 			// btnFeedback2
 			// 
-			this.btnFeedback2.Location = new System.Drawing.Point(412, 372);
+			this.btnFeedback2.Location = new System.Drawing.Point(412, 417);
 			this.btnFeedback2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnFeedback2.Name = "btnFeedback2";
 			this.btnFeedback2.Size = new System.Drawing.Size(77, 29);
 			this.btnFeedback2.TabIndex = 24;
-			this.btnFeedback2.Text = "Selecionar Feedback";
+			this.btnFeedback2.Text = "Selecionar";
 			this.btnFeedback2.UseVisualStyleBackColor = true;
 			this.btnFeedback2.Click += new System.EventHandler(this.btnFeedback2_Click);
 			// 
@@ -245,13 +281,13 @@
 			this.btnFeedback1.Name = "btnFeedback1";
 			this.btnFeedback1.Size = new System.Drawing.Size(77, 29);
 			this.btnFeedback1.TabIndex = 23;
-			this.btnFeedback1.Text = "Selecionar Feedback";
+			this.btnFeedback1.Text = "Selecionar";
 			this.btnFeedback1.UseVisualStyleBackColor = true;
 			this.btnFeedback1.Click += new System.EventHandler(this.btnFeedback1_Click);
 			// 
 			// btnSalvar
 			// 
-			this.btnSalvar.Location = new System.Drawing.Point(174, 481);
+			this.btnSalvar.Location = new System.Drawing.Point(173, 627);
 			this.btnSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnSalvar.Name = "btnSalvar";
 			this.btnSalvar.Size = new System.Drawing.Size(126, 33);
@@ -262,7 +298,7 @@
 			// 
 			// btnCorQuadrado3
 			// 
-			this.btnCorQuadrado3.Location = new System.Drawing.Point(47, 436);
+			this.btnCorQuadrado3.Location = new System.Drawing.Point(46, 533);
 			this.btnCorQuadrado3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorQuadrado3.Name = "btnCorQuadrado3";
 			this.btnCorQuadrado3.Size = new System.Drawing.Size(120, 29);
@@ -274,7 +310,7 @@
 			// panelCorQuadrado3
 			// 
 			this.panelCorQuadrado3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorQuadrado3.Location = new System.Drawing.Point(11, 436);
+			this.panelCorQuadrado3.Location = new System.Drawing.Point(10, 533);
 			this.panelCorQuadrado3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorQuadrado3.Name = "panelCorQuadrado3";
 			this.panelCorQuadrado3.Size = new System.Drawing.Size(28, 29);
@@ -284,7 +320,7 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label8.Location = new System.Drawing.Point(8, 410);
+			this.label8.Location = new System.Drawing.Point(7, 507);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(79, 17);
 			this.label8.TabIndex = 17;
@@ -292,7 +328,7 @@
 			// 
 			// btnCorQuadrado2
 			// 
-			this.btnCorQuadrado2.Location = new System.Drawing.Point(47, 372);
+			this.btnCorQuadrado2.Location = new System.Drawing.Point(47, 417);
 			this.btnCorQuadrado2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnCorQuadrado2.Name = "btnCorQuadrado2";
 			this.btnCorQuadrado2.Size = new System.Drawing.Size(120, 29);
@@ -304,7 +340,7 @@
 			// panelCorQuadrado2
 			// 
 			this.panelCorQuadrado2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panelCorQuadrado2.Location = new System.Drawing.Point(11, 372);
+			this.panelCorQuadrado2.Location = new System.Drawing.Point(11, 417);
 			this.panelCorQuadrado2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.panelCorQuadrado2.Name = "panelCorQuadrado2";
 			this.panelCorQuadrado2.Size = new System.Drawing.Size(28, 29);
@@ -314,7 +350,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label7.Location = new System.Drawing.Point(8, 347);
+			this.label7.Location = new System.Drawing.Point(8, 396);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(79, 17);
 			this.label7.TabIndex = 14;
@@ -464,13 +500,13 @@
 			this.panel2.Controls.Add(this.label9);
 			this.panel2.Location = new System.Drawing.Point(515, 14);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(385, 530);
+			this.panel2.Size = new System.Drawing.Size(385, 667);
 			this.panel2.TabIndex = 3;
 			// 
 			// btnEditar
 			// 
 			this.btnEditar.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnEditar.Location = new System.Drawing.Point(147, 481);
+			this.btnEditar.Location = new System.Drawing.Point(150, 629);
 			this.btnEditar.Name = "btnEditar";
 			this.btnEditar.Size = new System.Drawing.Size(84, 33);
 			this.btnEditar.TabIndex = 26;
@@ -481,7 +517,7 @@
 			// btnCriarFeedback
 			// 
 			this.btnCriarFeedback.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCriarFeedback.Location = new System.Drawing.Point(283, 481);
+			this.btnCriarFeedback.Location = new System.Drawing.Point(286, 629);
 			this.btnCriarFeedback.Name = "btnCriarFeedback";
 			this.btnCriarFeedback.Size = new System.Drawing.Size(87, 33);
 			this.btnCriarFeedback.TabIndex = 25;
@@ -492,7 +528,7 @@
 			// btnDeletarFeedback
 			// 
 			this.btnDeletarFeedback.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDeletarFeedback.Location = new System.Drawing.Point(10, 481);
+			this.btnDeletarFeedback.Location = new System.Drawing.Point(6, 629);
 			this.btnDeletarFeedback.Name = "btnDeletarFeedback";
 			this.btnDeletarFeedback.Size = new System.Drawing.Size(84, 33);
 			this.btnDeletarFeedback.TabIndex = 23;
@@ -509,7 +545,7 @@
 			this.listViewFeedback.Margin = new System.Windows.Forms.Padding(2);
 			this.listViewFeedback.MultiSelect = false;
 			this.listViewFeedback.Name = "listViewFeedback";
-			this.listViewFeedback.Size = new System.Drawing.Size(363, 419);
+			this.listViewFeedback.Size = new System.Drawing.Size(363, 568);
 			this.listViewFeedback.TabIndex = 22;
 			this.listViewFeedback.UseCompatibleStateImageBehavior = false;
 			this.listViewFeedback.View = System.Windows.Forms.View.Details;
@@ -529,22 +565,135 @@
 			this.label9.TabIndex = 21;
 			this.label9.Text = "Feedbacks";
 			// 
-			// btnCopiarCores
+			// label13
 			// 
-			this.btnCopiarCores.Location = new System.Drawing.Point(11, 482);
-			this.btnCopiarCores.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.btnCopiarCores.Name = "btnCopiarCores";
-			this.btnCopiarCores.Size = new System.Drawing.Size(105, 32);
-			this.btnCopiarCores.TabIndex = 24;
-			this.btnCopiarCores.Text = "Copiar Cores";
-			this.btnCopiarCores.UseVisualStyleBackColor = true;
-			this.btnCopiarCores.Click += new System.EventHandler(this.btnCopiarCores_Click);
+			this.label13.AutoSize = true;
+			this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label13.Location = new System.Drawing.Point(173, 288);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(64, 17);
+			this.label13.TabIndex = 37;
+			this.label13.Text = "Feedback";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label14.Location = new System.Drawing.Point(173, 398);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(64, 17);
+			this.label14.TabIndex = 38;
+			this.label14.Text = "Feedback";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label15.Location = new System.Drawing.Point(172, 507);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(64, 17);
+			this.label15.TabIndex = 39;
+			this.label15.Text = "Feedback";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label16.Location = new System.Drawing.Point(173, 337);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(42, 17);
+			this.label16.TabIndex = 42;
+			this.label16.Text = "Audio";
+			// 
+			// textAudio1
+			// 
+			this.textAudio1.Enabled = false;
+			this.textAudio1.Location = new System.Drawing.Point(173, 358);
+			this.textAudio1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.textAudio1.Name = "textAudio1";
+			this.textAudio1.Size = new System.Drawing.Size(233, 23);
+			this.textAudio1.TabIndex = 41;
+			// 
+			// btnSelecionarAudio1
+			// 
+			this.btnSelecionarAudio1.Location = new System.Drawing.Point(412, 356);
+			this.btnSelecionarAudio1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnSelecionarAudio1.Name = "btnSelecionarAudio1";
+			this.btnSelecionarAudio1.Size = new System.Drawing.Size(77, 29);
+			this.btnSelecionarAudio1.TabIndex = 40;
+			this.btnSelecionarAudio1.Text = "Selecionar";
+			this.btnSelecionarAudio1.UseVisualStyleBackColor = true;
+			this.btnSelecionarAudio1.Click += new System.EventHandler(this.btnSelecionarAudio1_Click);
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label17.Location = new System.Drawing.Point(173, 448);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(42, 17);
+			this.label17.TabIndex = 45;
+			this.label17.Text = "Audio";
+			// 
+			// textAudio2
+			// 
+			this.textAudio2.Enabled = false;
+			this.textAudio2.Location = new System.Drawing.Point(173, 469);
+			this.textAudio2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.textAudio2.Name = "textAudio2";
+			this.textAudio2.Size = new System.Drawing.Size(233, 23);
+			this.textAudio2.TabIndex = 44;
+			// 
+			// btnSelecionarAudio2
+			// 
+			this.btnSelecionarAudio2.Location = new System.Drawing.Point(412, 467);
+			this.btnSelecionarAudio2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnSelecionarAudio2.Name = "btnSelecionarAudio2";
+			this.btnSelecionarAudio2.Size = new System.Drawing.Size(77, 29);
+			this.btnSelecionarAudio2.TabIndex = 43;
+			this.btnSelecionarAudio2.Text = "Selecionar";
+			this.btnSelecionarAudio2.UseVisualStyleBackColor = true;
+			this.btnSelecionarAudio2.Click += new System.EventHandler(this.btnSelecionarAudio2_Click);
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.label18.Location = new System.Drawing.Point(173, 569);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(42, 17);
+			this.label18.TabIndex = 48;
+			this.label18.Text = "Audio";
+			// 
+			// textAudio3
+			// 
+			this.textAudio3.Enabled = false;
+			this.textAudio3.Location = new System.Drawing.Point(173, 590);
+			this.textAudio3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.textAudio3.Name = "textAudio3";
+			this.textAudio3.Size = new System.Drawing.Size(233, 23);
+			this.textAudio3.TabIndex = 47;
+			// 
+			// btnSelecionarAudio3
+			// 
+			this.btnSelecionarAudio3.Location = new System.Drawing.Point(412, 588);
+			this.btnSelecionarAudio3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.btnSelecionarAudio3.Name = "btnSelecionarAudio3";
+			this.btnSelecionarAudio3.Size = new System.Drawing.Size(77, 29);
+			this.btnSelecionarAudio3.TabIndex = 46;
+			this.btnSelecionarAudio3.Text = "Selecionar";
+			this.btnSelecionarAudio3.UseVisualStyleBackColor = true;
+			this.btnSelecionarAudio3.Click += new System.EventHandler(this.btnSelecionarAudio3_Click);
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
 			// 
 			// CondicaoCrud
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(912, 551);
+			this.ClientSize = new System.Drawing.Size(912, 691);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -611,5 +760,18 @@
 		private System.Windows.Forms.NumericUpDown numericPontosPassivos;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Button btnCopiarCores;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox textAudio1;
+		private System.Windows.Forms.Button btnSelecionarAudio1;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.TextBox textAudio3;
+		private System.Windows.Forms.Button btnSelecionarAudio3;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.TextBox textAudio2;
+		private System.Windows.Forms.Button btnSelecionarAudio2;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 	}
 }

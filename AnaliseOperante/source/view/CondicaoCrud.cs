@@ -1,4 +1,5 @@
 ﻿using AnaliseOperante.source.dominio;
+using AnaliseOperante.source.helpers;
 using AnaliseOperante.source.services;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,9 @@ namespace AnaliseOperante.source.view {
 				Text = "Criando nova Condição";
 				return;
 			}
-
-			condicao = CondicaoService.GetById(idCondicao);
+			else {
+				condicao = CondicaoService.GetById(idCondicao);
+			}
 
 			Text = "Editando Condição: " + condicao.Nome;
 			textNome.Text = condicao.Nome;
@@ -40,6 +42,10 @@ namespace AnaliseOperante.source.view {
 			textFeedback1.Text = condicao.FeedBackQuadrado1?.Nome;
 			textFeedback2.Text = condicao.FeedBackQuadrado2?.Nome;
 			textFeedback3.Text = condicao.FeedBackQuadrado3?.Nome;
+
+			textAudio1.Text = condicao.FeedBackQuadrado1?.NomeAudio;
+			textAudio2.Text = condicao.FeedBackQuadrado2?.NomeAudio;
+			textAudio3.Text = condicao.FeedBackQuadrado3?.NomeAudio;
 		}
 
 		private void CarregarListaFeedback() {
@@ -60,7 +66,7 @@ namespace AnaliseOperante.source.view {
 		}
 
 		private long GetIdFeedbackSelecionado() {
-			return Convert.ToInt64(listViewFeedback.SelectedItems[0].SubItems[1].Text);
+			return ViewHelper.GetIdSelecionadoInListView(listViewFeedback);
 		}
 
 		private FeedBack GetFeedbackSelecionado() {
@@ -170,5 +176,26 @@ namespace AnaliseOperante.source.view {
 			panelCorQuadrado3.BackColor = condicao.ColorQuadrado3;
 		}
 
+		private void CopiaAudioParaPastaESalvaNoFeedback(TextBox textBoxAudio, FeedBack feedBack) {
+			string nomeArquivoAudio = ViewHelper.SelecionaArquivoComFiltro(openFileDialog1, "WAV|*.wav");
+			if (string.IsNullOrEmpty(nomeArquivoAudio)) {
+				return;
+			}
+
+			feedBack.NomeAudio = AudioService.CopiaAudioParaPasta(nomeArquivoAudio);
+			textBoxAudio.Text = feedBack.NomeAudio;
+		}
+
+		private void btnSelecionarAudio1_Click(object sender, EventArgs e) {
+			CopiaAudioParaPastaESalvaNoFeedback(textAudio1, condicao.FeedBackQuadrado1);
+		}
+
+		private void btnSelecionarAudio2_Click(object sender, EventArgs e) {
+			CopiaAudioParaPastaESalvaNoFeedback(textAudio2, condicao.FeedBackQuadrado2);
+		}
+
+		private void btnSelecionarAudio3_Click(object sender, EventArgs e) {
+			CopiaAudioParaPastaESalvaNoFeedback(textAudio3, condicao.FeedBackQuadrado3);
+		}
 	}
 }

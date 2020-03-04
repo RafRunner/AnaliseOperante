@@ -1,4 +1,5 @@
 ﻿using AnaliseOperante.source.dominio;
+using AnaliseOperante.source.helpers;
 using AnaliseOperante.source.relatorios;
 using AnaliseOperante.source.services;
 using System;
@@ -37,7 +38,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
+			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewExperimento));
 			new GeradorDeRelatorios(experimento).GerarRelatorio();
 			MessageBox.Show("Relatório gerado! Nome do arquivo: " + experimento.GetNomeArquivo(), "Sucesso");
 		}
@@ -48,7 +49,7 @@ namespace AnaliseOperante.source.view {
 				return;
 			}
 
-			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
+			ExperimentoRealizado experimento = ExperimentoRealizadoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewExperimento));
 			ExperimentoRealizadoService.Deletar(experimento);
 			listViewExperimento.Items.Remove(listViewExperimento.SelectedItems[0]);
 			MessageBox.Show("Arquivo de relatório deletado!", "Sucesso");

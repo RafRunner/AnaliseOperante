@@ -1,4 +1,5 @@
 ﻿using AnaliseOperante.source.dominio;
+using AnaliseOperante.source.helpers;
 using AnaliseOperante.source.services;
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhuma Linha de Base selecionada!", "Advertência");
 				return;
 			}
-			new LinhaDeBaseCrud(Convert.ToInt64(listViewLinhaDeBase.SelectedItems[0].SubItems[1].Text)).ShowDialog();
+			new LinhaDeBaseCrud(ViewHelper.GetIdSelecionadoInListView(listViewLinhaDeBase)).ShowDialog();
 			CarregarListaLinhaDeBase();
 		}
 
@@ -95,7 +96,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhuma Condição selecionada!", "Advertência");
 				return;
 			}
-			new CondicaoCrud(Convert.ToInt64(listViewCondicao.SelectedItems[0].SubItems[1].Text)).ShowDialog();
+			new CondicaoCrud(ViewHelper.GetIdSelecionadoInListView(listViewCondicao)).ShowDialog();
 			CarregarListaCondicao();
 		}
 
@@ -104,7 +105,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhuma Condição selecionada!", "Advertência");
 				return;
 			}
-			CondicaoService.Deletar(CondicaoService.GetById(Convert.ToInt64(listViewCondicao.SelectedItems[0].SubItems[1].Text)));
+			CondicaoService.Deletar(CondicaoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewCondicao)));
 			CarregarListaCondicao();
 			MessageBox.Show("Condição deletada com sucesso!", "Sucesso");
 		}
@@ -114,7 +115,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhum Experimento selecionado!", "Advertência");
 				return;
 			}
-			ExperimentoService.Deletar(ExperimentoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text)));
+			ExperimentoService.Deletar(ExperimentoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewExperimento)));
 			CarregarListaExperimento();
 			MessageBox.Show("Experimento deletado com sucesso!", "Sucesso");
 		}
@@ -124,7 +125,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhum Experimento selecionado!", "Advertência");
 				return;
 			}
-			new ExperimentoCrud(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text)).ShowDialog();
+			new ExperimentoCrud(ViewHelper.GetIdSelecionadoInListView(listViewExperimento)).ShowDialog();
 			CarregarListaExperimento();
 		}
 
@@ -138,7 +139,7 @@ namespace AnaliseOperante.source.view {
 				MessageBox.Show("Nenhum Experimento selecionado!", "Advertência");
 				return;
 			}
-			Experimento experimento = ExperimentoService.GetById(Convert.ToInt64(listViewExperimento.SelectedItems[0].SubItems[1].Text));
+			Experimento experimento = ExperimentoService.GetById(ViewHelper.GetIdSelecionadoInListView(listViewExperimento));
 			experimentoRealizado.Experimento = experimento;
 			textExperimentoSelecionado.Text = experimento.Nome;
 		}
@@ -174,6 +175,11 @@ namespace AnaliseOperante.source.view {
 
 		private void button1_Click(object sender, EventArgs e) {
 			MessageBox.Show("Colocar as informações aqui!", "Informações");
+		}
+
+		public bool isEven(int x) {
+			string binary = Convert.ToString(x, 2);
+			return binary.Last() == '0';
 		}
 	}
 }

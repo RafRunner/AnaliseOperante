@@ -26,8 +26,9 @@ namespace AnaliseOperante.source.view {
 				Text = "Criando novo Feedback";
 				return;
 			}
-
-			feedback = FeedBackService.GetById(idFeedback);
+			else {
+				feedback = FeedBackService.GetById(idFeedback);
+			}
 
 			Text = "Editando Feedback";
 
