@@ -129,12 +129,19 @@
     <Compile Include="source\view\MenuInicial.Designer.cs">
       <DependentUpon>MenuInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="source\view\TelaInformacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="source\view\TelaInformacoes.Designer.cs">
+      <DependentUpon>TelaInformacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="source\view\TelaMensagem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="source\view\TelaMensagem.Designer.cs">
       <DependentUpon>TelaMensagem.cs</DependentUpon>
     </Compile>
+    <Compile Include="source\view\utils\ViewUtils.cs" />
     <None Include="Resources\Loris.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -172,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="source\view\MenuInicial.resx">
       <DependentUpon>MenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="source\view\TelaInformacoes.resx">
+      <DependentUpon>TelaInformacoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="source\view\TelaMensagem.resx">
       <DependentUpon>TelaMensagem.cs</DependentUpon>

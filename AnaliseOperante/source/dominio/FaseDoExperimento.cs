@@ -106,10 +106,10 @@ namespace AnaliseOperante.source.dominio {
 			pontosTotais -= moduloPontos;
 
 			if (quantidadePontos > 0) {
-				PontosGanhos += quantidadePontos;
+				PontosGanhos += moduloPontos;
 			}
 			else {
-				PontosPerdidos += quantidadePontos * -1;
+				PontosPerdidos += moduloPontos;
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using AnaliseOperante.source.dominio;
 using AnaliseOperante.source.relatorios;
 using AnaliseOperante.source.services;
+using AnaliseOperante.source.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,9 @@ namespace AnaliseOperante.source.view {
 
 		private TaskCompletionSource<bool> taskCondicaoAtual;
 
+		private readonly int height = Screen.PrimaryScreen.Bounds.Height;
+		private readonly int width = Screen.PrimaryScreen.Bounds.Width;
+
 		public ExperimentoView(ExperimentoRealizado experimentoRealizado) {
 			InitializeComponent();
 
@@ -32,6 +36,32 @@ namespace AnaliseOperante.source.view {
 
 			experimentoRealizado.DateTimeInicio = DateTime.Now;
 			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando o experimento de nome '{experimento.Nome}'", "Inicialização"));
+
+			double heightRatio = height / 1080.0;
+			double widthRatio = width / 1920.0;
+
+			ViewUtils.CorrigeTamanhoEPosicao(panel1, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(panel2, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(panel3, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Borda1, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Borda2, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Borda3, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Quadrado1, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Quadrado2, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(Quadrado3, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(label1, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(label2, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(label3, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(labelPontosGanhos, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(labelPontosPerdidos, heightRatio, widthRatio);
+			ViewUtils.CorrigeTamanhoEPosicao(labelPontosTotais, heightRatio, widthRatio);
+
+			ViewUtils.CorrigeFonte(label1, heightRatio);
+			ViewUtils.CorrigeFonte(label2, heightRatio);
+			ViewUtils.CorrigeFonte(label3, heightRatio);
+			ViewUtils.CorrigeFonte(labelPontosGanhos, heightRatio);
+			ViewUtils.CorrigeFonte(labelPontosPerdidos, heightRatio);
+			ViewUtils.CorrigeFonte(labelPontosTotais, heightRatio);
 
 			ApresentarLinhaDeBase(experimento.LinhaDeBase);
 		}
@@ -88,8 +118,8 @@ namespace AnaliseOperante.source.view {
 			faseAtual = linhaDeBase;
 			ColorirTela(linhaDeBase);
 
-			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Linha de Base '{linhaDeBase.Nome}', com tempo de apresentação de {linhaDeBase.TempoApresentacao} segundos", "LinhaDeBase"));
-			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{linhaDeBase.ColorFundo.Name}', Cor da borda: '{linhaDeBase.ColorFundo.Name}'", "LinhaDeBase"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Linha de Base '{linhaDeBase.Nome}', com tempo de apresentação de {linhaDeBase.TempoApresentacao} segundos, pontos totais {linhaDeBase.PontosTotais.ToString()}", "LinhaDeBase"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{linhaDeBase.ColorFundo.Name}', Cor da borda: '{linhaDeBase.ColorBorda.Name}'", "LinhaDeBase"));
 			experimentoRealizado.RegistrarEvento(new Evento($"Cores dos quadrados em ordem interior para exterior: '{linhaDeBase.ColorQuadrado1.Name}', '{linhaDeBase.ColorQuadrado2.Name}', '{linhaDeBase.ColorQuadrado3.Name}'", "LinhaDeBase"));
 
 			AtualizarLabelsPontos(linhaDeBase);
@@ -123,8 +153,8 @@ namespace AnaliseOperante.source.view {
 			faseAtual = condicao;
 			ColorirTela(condicao);
 
-			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Condição '{condicao.Nome}', com tempo máximo de {condicao.TempoApresentacao} segundos, tempo de ganho passivo de {condicao.TempoGanhoPassivo} segundos e quantidade ganha passivamente de {condicao.PontosGanhoPassivo}", "Condição"));
-			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{condicao.ColorFundo.Name}', Cor da borda: '{condicao.ColorFundo.Name}'", "Condição"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Iniciando a apresentação da Condição '{condicao.Nome}', com tempo máximo de {condicao.TempoApresentacao} segundos, pontos totais {condicao.PontosTotais.ToString()}, tempo de ganho passivo de {condicao.TempoGanhoPassivo} segundos e quantidade ganha passivamente de {condicao.PontosGanhoPassivo}", "Condição"));
+			experimentoRealizado.RegistrarEvento(new Evento($"Cor de fundo: '{condicao.ColorFundo.Name}', Cor da borda: '{condicao.ColorBorda.Name}'", "Condição"));
 			experimentoRealizado.RegistrarEvento(new Evento($"Cores dos quadrados em ordem interior para exterior: '{condicao.ColorQuadrado1.Name}', '{condicao.ColorQuadrado2.Name}', '{condicao.ColorQuadrado3.Name}'", "Condição"));
 
 			AtualizarLabelsPontos(condicao);
@@ -210,7 +240,6 @@ namespace AnaliseOperante.source.view {
 
 		private void Quadrado1_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado1();
-			ComportamentoClickQuadrado(faseAtual);
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
@@ -222,11 +251,12 @@ namespace AnaliseOperante.source.view {
 			else {
 				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 1", "LinhaDeBase"));
 			}
+
+			ComportamentoClickQuadrado(faseAtual);
 		}
 
 		private void Quadrado2_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado2();
-			ComportamentoClickQuadrado(faseAtual);
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
@@ -238,11 +268,12 @@ namespace AnaliseOperante.source.view {
 			else {
 				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 2", "LinhaDeBase"));
 			}
+
+			ComportamentoClickQuadrado(faseAtual);
 		}
 
 		private void Quadrado3_Click(object sender, EventArgs e) {
 			faseAtual.ToqueQuadrado3();
-			ComportamentoClickQuadrado(faseAtual);
 
 			if (faseAtual is Condicao) {
 				Condicao condicao = faseAtual as Condicao;
@@ -254,6 +285,8 @@ namespace AnaliseOperante.source.view {
 			else {
 				experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou no quadrado 3", "LinhaDeBase"));
 			}
+
+			ComportamentoClickQuadrado(faseAtual);
 		}
 
 		private string GetTipoFaseAtual() {
@@ -266,7 +299,7 @@ namespace AnaliseOperante.source.view {
 		}
 
 		private void RegistrarToqueElementoNaoInterativo(string nomeElemento) {
-			experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou ${nomeElemento}", GetTipoFaseAtual()));
+			experimentoRealizado.RegistrarEvento(new Evento($"Participante tocou {nomeElemento}", GetTipoFaseAtual()));
 		}
 
 		private void ExperimentoView_Click(object sender, EventArgs e) {

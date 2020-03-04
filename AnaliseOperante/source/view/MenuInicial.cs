@@ -173,8 +173,8 @@ namespace AnaliseOperante.source.view {
 			new GeradorRelatoriosView().ShowDialog();
 		}
 
-		private void button1_Click(object sender, EventArgs e) {
-			MessageBox.Show("Colocar as informações aqui!", "Informações");
+		private void btnInfo_Click(object sender, EventArgs e) {
+			new TelaInformacoes().ShowDialog();
 		}
 
 		public bool isEven(int x) {

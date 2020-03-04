@@ -47,8 +47,8 @@
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
 			this.numericIdadeParticipante = new System.Windows.Forms.NumericUpDown();
+			this.btnIniciarExperimento = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textCabineUtilizada = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -59,10 +59,10 @@
 			this.textNomeParticipante = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.btnIniciarExperimento = new System.Windows.Forms.Button();
+			this.btnInfo = new System.Windows.Forms.Button();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.label15 = new System.Windows.Forms.Label();
 			this.btnGerarRelatorios = new System.Windows.Forms.Button();
+			this.label15 = new System.Windows.Forms.Label();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -329,21 +329,10 @@
 			this.panel4.Controls.Add(this.textNomeParticipante);
 			this.panel4.Controls.Add(this.label5);
 			this.panel4.Controls.Add(this.label4);
-			this.panel4.Location = new System.Drawing.Point(12, 404);
+			this.panel4.Location = new System.Drawing.Point(333, 404);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(636, 203);
 			this.panel4.TabIndex = 8;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(5, 147);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(303, 43);
-			this.button1.TabIndex = 11;
-			this.button1.Text = "Mais sobre o Software";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// numericIdadeParticipante
 			// 
@@ -356,6 +345,17 @@
 			this.numericIdadeParticipante.Name = "numericIdadeParticipante";
 			this.numericIdadeParticipante.Size = new System.Drawing.Size(120, 25);
 			this.numericIdadeParticipante.TabIndex = 10;
+			// 
+			// btnIniciarExperimento
+			// 
+			this.btnIniciarExperimento.Location = new System.Drawing.Point(326, 147);
+			this.btnIniciarExperimento.Margin = new System.Windows.Forms.Padding(2);
+			this.btnIniciarExperimento.Name = "btnIniciarExperimento";
+			this.btnIniciarExperimento.Size = new System.Drawing.Size(299, 43);
+			this.btnIniciarExperimento.TabIndex = 5;
+			this.btnIniciarExperimento.Text = "Iniciar";
+			this.btnIniciarExperimento.UseVisualStyleBackColor = true;
+			this.btnIniciarExperimento.Click += new System.EventHandler(this.btnIniciarExperimento_Click);
 			// 
 			// label9
 			// 
@@ -446,37 +446,27 @@
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Dados da Sessão";
 			// 
-			// btnIniciarExperimento
+			// btnInfo
 			// 
-			this.btnIniciarExperimento.Location = new System.Drawing.Point(326, 147);
-			this.btnIniciarExperimento.Margin = new System.Windows.Forms.Padding(2);
-			this.btnIniciarExperimento.Name = "btnIniciarExperimento";
-			this.btnIniciarExperimento.Size = new System.Drawing.Size(299, 43);
-			this.btnIniciarExperimento.TabIndex = 5;
-			this.btnIniciarExperimento.Text = "Iniciar";
-			this.btnIniciarExperimento.UseVisualStyleBackColor = true;
-			this.btnIniciarExperimento.Click += new System.EventHandler(this.btnIniciarExperimento_Click);
+			this.btnInfo.Location = new System.Drawing.Point(5, 147);
+			this.btnInfo.Margin = new System.Windows.Forms.Padding(2);
+			this.btnInfo.Name = "btnInfo";
+			this.btnInfo.Size = new System.Drawing.Size(303, 43);
+			this.btnInfo.TabIndex = 11;
+			this.btnInfo.Text = "Mais sobre o Software";
+			this.btnInfo.UseVisualStyleBackColor = true;
+			this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
 			// 
 			// panel5
 			// 
 			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel5.Controls.Add(this.button1);
+			this.panel5.Controls.Add(this.btnInfo);
 			this.panel5.Controls.Add(this.btnGerarRelatorios);
 			this.panel5.Controls.Add(this.label15);
-			this.panel5.Location = new System.Drawing.Point(654, 404);
+			this.panel5.Location = new System.Drawing.Point(12, 404);
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(315, 203);
 			this.panel5.TabIndex = 12;
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label15.Location = new System.Drawing.Point(5, 4);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(135, 21);
-			this.label15.TabIndex = 0;
-			this.label15.Text = "Relatórios e Info";
 			// 
 			// btnGerarRelatorios
 			// 
@@ -488,6 +478,16 @@
 			this.btnGerarRelatorios.Text = "Gerar Relatórios Passados";
 			this.btnGerarRelatorios.UseVisualStyleBackColor = true;
 			this.btnGerarRelatorios.Click += new System.EventHandler(this.btnGerarRelatorios_Click);
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label15.Location = new System.Drawing.Point(5, 4);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(135, 21);
+			this.label15.TabIndex = 0;
+			this.label15.Text = "Relatórios e Info";
 			// 
 			// MenuInicial
 			// 
@@ -558,7 +558,7 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox textExperimentoSelecionado;
 		private System.Windows.Forms.Button btnEditarExperimento;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnInfo;
 		private System.Windows.Forms.Panel panel5;
 		private System.Windows.Forms.Button btnGerarRelatorios;
 		public System.Windows.Forms.Label label15;
