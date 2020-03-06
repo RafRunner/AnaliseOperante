@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			this.Borda3 = new System.Windows.Forms.Panel();
 			this.Quadrado3 = new System.Windows.Forms.Panel();
 			this.Borda2 = new System.Windows.Forms.Panel();
@@ -38,6 +39,8 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.labelPontosGanhos = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.timerFade = new System.Windows.Forms.Timer(this.components);
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.Borda3.SuspendLayout();
 			this.Quadrado3.SuspendLayout();
 			this.Borda2.SuspendLayout();
@@ -162,11 +165,11 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(64, 22);
+			this.label2.Location = new System.Drawing.Point(3, 22);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(163, 24);
+			this.label2.Size = new System.Drawing.Size(284, 24);
 			this.label2.TabIndex = 1;
-			this.label2.Text = "PONTOS TOTAIS";
+			this.label2.Text = "PONTOS TOTAIS DISPONÍVEIS";
 			this.label2.Click += new System.EventHandler(this.panel2_Click);
 			// 
 			// panel3
@@ -203,11 +206,24 @@
 			this.label3.Text = "PONTOS GANHOS";
 			this.label3.Click += new System.EventHandler(this.panel3_Click);
 			// 
+			// timerFade
+			// 
+			this.timerFade.Interval = 50;
+			this.timerFade.Tick += new System.EventHandler(this.timerFade_Tick);
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(505, 198);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+			this.dateTimePicker1.TabIndex = 3;
+			// 
 			// ExperimentoView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1920, 1080);
+			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
@@ -248,5 +264,7 @@
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label labelPontosGanhos;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Timer timerFade;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 	}
 }

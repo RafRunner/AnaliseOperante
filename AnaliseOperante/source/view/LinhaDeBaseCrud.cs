@@ -23,8 +23,9 @@ namespace AnaliseOperante.source.view {
 				Text = "Criando nova Linha de Base";
 				return;
 			}
-
-			linhaDeBase = LinhaDeBaseService.GetById(idLinhaDeBase);
+			else {
+				linhaDeBase = LinhaDeBaseService.GetById(idLinhaDeBase);
+			}
 
 			Text = "Editando Linha de Base: " + linhaDeBase.Nome;
 			textNome.Text = linhaDeBase.Nome;

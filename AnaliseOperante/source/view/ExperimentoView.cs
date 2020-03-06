@@ -20,6 +20,7 @@ namespace AnaliseOperante.source.view {
 
 		private Timer timerAtual;
 		private Timer timerPontosPassivos;
+		private bool fadingIn;
 
 		private FaseDoExperimento faseAtual;
 
@@ -63,6 +64,7 @@ namespace AnaliseOperante.source.view {
 			ViewUtils.CorrigeFonte(labelPontosPerdidos, heightRatio);
 			ViewUtils.CorrigeFonte(labelPontosTotais, heightRatio);
 
+			Opacity = 0;
 			ApresentarLinhaDeBase(experimento.LinhaDeBase);
 		}
 
@@ -72,6 +74,16 @@ namespace AnaliseOperante.source.view {
 
 			Location = new Point(0, 0);
 			Size = new Size(width, height);
+		}
+
+		private void FadeIn() {
+			fadingIn = true;
+			timerFade.Start();
+		}
+
+		private void FadeOut() {
+			fadingIn = false;
+			timerFade.Start();
 		}
 
 		private void ColorirTela(FaseDoExperimento fase) {
@@ -88,6 +100,7 @@ namespace AnaliseOperante.source.view {
 		private void EventoFimTempoLinhaDeBase(Object myObject, EventArgs myEventArgs) {
 			timerAtual.Stop();
 			experimentoRealizado.RegistrarEvento(new Evento($"Tempo de apresentação da Linha de Base '{faseAtual.Nome}' ({faseAtual.TempoApresentacao} segundos) finalizado", "LinhaDeBase"));
+			FadeOut();
 			ApresentarCondicoes(experimento.Condicoes);
 		}
 
@@ -115,6 +128,8 @@ namespace AnaliseOperante.source.view {
 				ApresentarCondicoes(experimento.Condicoes);
 				return;
 			}
+			FadeIn();
+
 			faseAtual = linhaDeBase;
 			ColorirTela(linhaDeBase);
 
@@ -150,6 +165,7 @@ namespace AnaliseOperante.source.view {
 		}
 
 		private void ApresentarCondicao(Condicao condicao) {
+			FadeOut();
 			faseAtual = condicao;
 			ColorirTela(condicao);
 
@@ -158,6 +174,7 @@ namespace AnaliseOperante.source.view {
 			experimentoRealizado.RegistrarEvento(new Evento($"Cores dos quadrados em ordem interior para exterior: '{condicao.ColorQuadrado1.Name}', '{condicao.ColorQuadrado2.Name}', '{condicao.ColorQuadrado3.Name}'", "Condição"));
 
 			AtualizarLabelsPontos(condicao);
+			FadeIn();
 
 			if (condicao.TempoApresentacao > 0) {
 				timerAtual = new Timer {
@@ -177,7 +194,7 @@ namespace AnaliseOperante.source.view {
 
 		private async void ApresentarCondicoes(List<Condicao> condicoes) {
 
-			if (condicoes.Count > 0) { 
+			if (condicoes.Count > 0) {
 				experimentoRealizado.RegistrarEvento(new Evento($"Iniciando apresentação de {condicoes.Count.ToString()} condições", "Intervalo"));
 
 				foreach (Condicao condicao in condicoes) {
@@ -293,9 +310,7 @@ namespace AnaliseOperante.source.view {
 			if (faseAtual is Condicao) {
 				return "Condição";
 			}
-			else {
-				return "LinhaDeBase";
-			}
+			return "LinhaDeBase";
 		}
 
 		private void RegistrarToqueElementoNaoInterativo(string nomeElemento) {
@@ -330,5 +345,23 @@ namespace AnaliseOperante.source.view {
 			RegistrarToqueElementoNaoInterativo("na borda do quadrado 1");
 		}
 
+		private void timerFade_Tick(object sender, EventArgs e) {
+			if (fadingIn) {
+				if (Opacity < 1.0) {
+					Opacity += 0.025;
+				}
+				else {
+					timerFade.Stop();
+				}
+			}
+			else {
+				if (Opacity > 0) {
+					Opacity -= 0.025;
+				}
+				else {
+					timerFade.Stop();
+				}
+			}
+		}
 	}
 }

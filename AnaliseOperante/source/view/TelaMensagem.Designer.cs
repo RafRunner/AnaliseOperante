@@ -43,9 +43,8 @@
 			this.labelMensagem.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelMensagem.Location = new System.Drawing.Point(4, 4);
 			this.labelMensagem.Name = "labelMensagem";
-			this.labelMensagem.Size = new System.Drawing.Size(160, 41);
+			this.labelMensagem.Size = new System.Drawing.Size(0, 41);
 			this.labelMensagem.TabIndex = 0;
-			this.labelMensagem.Text = "Instrução";
 			this.labelMensagem.Click += new System.EventHandler(this.labelMensagem_Click);
 			// 
 			// btnContinuar
@@ -65,7 +64,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-			this.ClientSize = new System.Drawing.Size(1920, 1080);
+			this.ClientSize = new System.Drawing.Size(1920, 1061);
 			this.Controls.Add(this.btnContinuar);
 			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

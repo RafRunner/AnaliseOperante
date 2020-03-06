@@ -163,10 +163,16 @@ namespace AnaliseOperante.source.view {
 			telaMensagem.Show();
 			await telaMensagem.GetTask().Task;
 
+			telaMensagem.AlterarPropriedades("", false);
+
 			new ExperimentoView(experimentoRealizado).ShowDialog();
+			Experimento experimentoAnterior = experimentoRealizado.Experimento;
+			experimentoRealizado = new ExperimentoRealizado();
+			experimentoRealizado.Experimento = experimentoAnterior;
 
 			telaMensagem.AlterarPropriedades("Experimento finalizado! Por favor, chamar o(a) experimentador(a).", false);
-			telaMensagem.Show();
+			telaMensagem.ShowDialog();
+			telaMensagem.Close();
 		}
 
 		private void btnGerarRelatorios_Click(object sender, EventArgs e) {
@@ -177,9 +183,5 @@ namespace AnaliseOperante.source.view {
 			new TelaInformacoes().ShowDialog();
 		}
 
-		public bool isEven(int x) {
-			string binary = Convert.ToString(x, 2);
-			return binary.Last() == '0';
-		}
 	}
 }
